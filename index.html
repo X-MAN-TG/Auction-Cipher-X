@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚔️ Cosmic Clash Auction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-title">⚔️ COSMIC CLASH AUCTION ⚔️</div>
+      <div class="header-sub">150 COINS &nbsp;•&nbsp; 8 TEAMS &nbsp;•&nbsp; 40 PLAYERS &nbsp;•&nbsp; NO LIMITS</div>
+    </header>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="teams">👑 Teams</button>
+      <button class="tab-btn" data-tab="slots">📦 Slots</button>
+      <button class="tab-btn" data-tab="message">📢 Group Msg</button>
+    </div>
+
+    <!-- TEAMS TAB -->
+    <div id="tab-teams" class="tab-content active">
+      <div class="teams-grid" id="teams-grid"></div>
+      <div class="economy-card">
+        <div class="economy-title">💼 AUCTION ECONOMY</div>
+        <div class="economy-grid">
+          <div class="economy-item"><span class="eco-label">💰 Wallet</span><span class="eco-val">150 coins</span></div>
+          <div class="economy-item"><span class="eco-label">🔒 Min Spend</span><span class="eco-val">77 coins</span></div>
+          <div class="economy-item"><span class="eco-label">🔥 Flex Budget</span><span class="eco-val">73 coins</span></div>
+          <div class="economy-item"><span class="eco-label">💀 Bankrupt Risk</span><span class="eco-val">2 greedy bids</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLOTS TAB -->
+    <div id="tab-slots" class="tab-content">
+      <div id="slots-list"></div>
+    </div>
+
+    <!-- MESSAGE TAB -->
+    <div id="tab-message" class="tab-content">
+      <div class="msg-box">
+        <pre id="group-message"></pre>
+      </div>
+      <button id="copy-btn" class="copy-btn">📋 COPY GROUP MESSAGE</button>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
