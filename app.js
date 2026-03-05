@@ -17,7 +17,7 @@ const TEAMS = [
   { name:"TITAN",   captain:"Ayushh",            emoji:"🏆", color:"#FFD700", glow:"#FFD70044",
     members:["PURVA","ELVYA","TONMOY","PIYUSH","MURARI"] },
   { name:"INFERNO", captain:"Emperor (Aagastya)",emoji:"🔥", color:"#FF2D55", glow:"#FF2D5544",
-    members:["MARCO","ASPIRANT","DOREMON","PHANTOM","ALARA"] },
+    members:["MARCO","ASPIRANT","DOREMON","PHANTOM","ELARA"] },
   { name:"BLAZE",   captain:"AAKARSH",           emoji:"💥", color:"#FF8C00", glow:"#FF8C0044",
     members:["ROHII","SHAROLET","BACHIRA","DUSKY","ANGEL"] },
   { name:"ECLIPSE", captain:"VEGA",              emoji:"🌑", color:"#9D4EDD", glow:"#9D4EDD44",
