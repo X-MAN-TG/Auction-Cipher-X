@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚔️ Cosmic Clash — Crown Reapers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-badge">MARCH 5 – 15 · 2025</div>
+      <div class="header-title">⚔️ COSMIC CLASH ⚔️</div>
+      <div class="header-sub">8 TEAMS &nbsp;•&nbsp; 11 DAYS &nbsp;•&nbsp; 1 CHAMPION</div>
+      <a href="https://t.me/crownreapers" target="_blank" class="tg-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.4l-2.948-.924c-.64-.203-.658-.64.135-.954l11.57-4.461c.537-.194 1.006.131.947.16z"/>
+        </svg>
+        More Info on Telegram
+      </a>
+    </header>
+
+    <!-- NAV TABS -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="teams">👑 Teams</button>
+      <button class="tab-btn" data-tab="schedule">📅 Schedule</button>
+      <button class="tab-btn" data-tab="stats">📊 Stats</button>
+      <button class="tab-btn" data-tab="rules">📜 Rules</button>
+      <button class="tab-btn" data-tab="rewards">🎁 Rewards</button>
+    </nav>
+
+    <!-- ══ TEAMS ══ -->
+    <div id="tab-teams" class="tab-content active">
+      <div class="section-label">🌌 THE 8 COSMIC TEAMS</div>
+      <div class="teams-grid" id="teams-grid"></div>
+    </div>
+
+    <!-- ══ SCHEDULE ══ -->
+    <div id="tab-schedule" class="tab-content">
+      <div class="section-label">📅 FULL MATCH SCHEDULE</div>
+      <div class="phase-tabs" id="phase-tabs">
+        <button class="phase-btn active" data-phase="league">📋 League</button>
+        <button class="phase-btn" data-phase="quarters">⚔️ QF</button>
+        <button class="phase-btn" data-phase="secondchance">🔁 2nd Chance</button>
+        <button class="phase-btn" data-phase="semis">🔥 Semis</button>
+        <button class="phase-btn" data-phase="final">👑 Final</button>
+      </div>
+      <div id="schedule-content"></div>
+    </div>
+
+    <!-- ══ STATS ══ -->
+    <div id="tab-stats" class="tab-content">
+      <div class="section-label">📊 CHALLENGE STATS</div>
+      <div class="phase-tabs" id="stats-tabs">
+        <button class="phase-btn active" data-sphase="standing">🏆 Standings</button>
+        <button class="phase-btn" data-sphase="qf">⚔️ QF</button>
+        <button class="phase-btn" data-sphase="sc">🔁 2nd Chance</button>
+        <button class="phase-btn" data-sphase="sf">🔥 Semis</button>
+        <button class="phase-btn" data-sphase="gf">👑 Final</button>
+      </div>
+      <div id="stats-content"></div>
+    </div>
+
+    <!-- ══ RULES ══ -->
+    <div id="tab-rules" class="tab-content">
+      <div class="section-label">📜 RULES & REGULATIONS</div>
+      <div id="rules-list"></div>
+    </div>
+
+    <!-- ══ REWARDS ══ -->
+    <div id="tab-rewards" class="tab-content">
+      <div class="section-label">🎁 REWARDS & RECOGNITION</div>
+      <div id="rewards-content"></div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    Made with ❤️ by
+    <a href="https://t.me/pyrexus" target="_blank" class="footer-link">𝐂𝐈𝐏𝐇𝐄𝐑 𝐗</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
