@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>⚔️ Cosmic Clash 2026 — Crown Reapers</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060610;--bg2:#0b0b1c;--bg3:#11112a;--bg4:#161630;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --text:#e4e4f0;--muted:#4a4a70;--muted2:#7070a0;
+  --gold:#FFD700;--gold2:#FFA500;--orange:#FF6B35;--pink:#FF2D55;
+  --purple:#9D4EDD;--cyan:#00D4FF;--green:#00FF88;--red:#ff3344;
+  --aurora-grad:linear-gradient(135deg,#00FF88,#00D4FF,#9D4EDD,#FF2D55);
+  --r:12px;--r2:8px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;padding:0 0 80px;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none}
+
+/* ── STARFIELD ── */
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,0.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 80% 10%,rgba(255,255,255,0.25) 0%,transparent 100%),
+  radial-gradient(1px 1px at 50% 80%,rgba(255,255,255,0.2) 0%,transparent 100%),
+  radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,0.25) 0%,transparent 100%),
+  radial-gradient(1px 1px at 90% 60%,rgba(255,255,255,0.3) 0%,transparent 100%),
+  radial-gradient(1px 1px at 40% 15%,rgba(255,255,255,0.2) 0%,transparent 100%),
+  radial-gradient(1px 1px at 70% 45%,rgba(255,255,255,0.15) 0%,transparent 100%),
+  radial-gradient(2px 2px at 25% 55%,rgba(157,78,221,0.4) 0%,transparent 100%),
+  radial-gradient(2px 2px at 75% 25%,rgba(0,212,255,0.3) 0%,transparent 100%),
+  radial-gradient(2px 2px at 60% 85%,rgba(0,255,136,0.25) 0%,transparent 100%);
+  pointer-events:none;z-index:0}
+
+.wrap{max-width:680px;margin:0 auto;padding:0 14px;position:relative;z-index:1}
+
+/* ── HEADER ── */
+header{text-align:center;padding:32px 14px 24px;border-bottom:1px solid var(--border);position:relative}
+.challenge-over{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(0,255,136,0.12),rgba(0,212,255,0.08));border:1px solid rgba(0,255,136,0.3);border-radius:20px;padding:5px 14px;font-family:'Space Mono',monospace;font-size:10px;color:var(--green);letter-spacing:2px;margin-bottom:14px}
+.challenge-over::before{content:'●';animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,9vw,52px);letter-spacing:8px;background:linear-gradient(90deg,#FFD700,#FF6B35,#FF2D55,#9D4EDD,#00D4FF,#00FF88);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
+.logo-sub{font-size:11px;letter-spacing:4px;color:var(--muted2);margin-bottom:16px}
+.champion-banner{background:linear-gradient(135deg,rgba(0,255,136,0.08),rgba(157,78,221,0.08));border:1px solid rgba(0,255,136,0.25);border-radius:10px;padding:12px 16px;margin:14px auto 16px;max-width:420px;text-align:center}
+.champion-banner .label{font-size:9px;letter-spacing:3px;color:var(--green);margin-bottom:4px}
+.champion-banner .name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;background:var(--aurora-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.champion-banner .sub{font-size:10px;color:var(--muted2);letter-spacing:1px;margin-top:2px}
+.tg-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0088cc,#006aab);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:8px 18px;border-radius:22px;border:1px solid rgba(255,255,255,0.1);transition:transform .2s,opacity .2s}
+.tg-btn:hover{transform:translateY(-2px);opacity:.9}
+
+/* ── TABS ── */
+nav.tabs{display:flex;gap:5px;padding:14px 14px 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--border);background:rgba(6,6,16,0.9);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:8px 16px;border-radius:10px 10px 0 0;border:1px solid transparent;background:transparent;color:var(--muted);font-size:11.5px;font-weight:700;letter-spacing:.5px;white-space:nowrap;transition:all .2s;margin-bottom:-1px}
+.tab-btn.active{background:var(--bg2);border-color:var(--border);border-bottom-color:var(--bg2);color:var(--gold)}
+.tab-btn:hover:not(.active){color:var(--muted2)}
+.tab-content{display:none;padding:20px 14px}
+.tab-content.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── SECTION LABEL ── */
+.section-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+
+/* ── SUB TABS ── */
+.sub-tabs{display:flex;gap:5px;margin-bottom:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.sub-tabs::-webkit-scrollbar{display:none}
+.sub-btn{flex-shrink:0;padding:6px 13px;border-radius:20px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);font-size:11px;font-weight:700;white-space:nowrap;transition:all .2s}
+.sub-btn.active{background:linear-gradient(135deg,var(--purple),#5a1dcc);color:#fff;border-color:transparent}
+.sub-btn:hover:not(.active){color:var(--muted2);background:var(--bg3)}
+.sub-content{display:none}
+.sub-content.active{display:block;animation:fadeIn .2s ease}
+
+/* ════════════════════════════════
+   TEAMS
+════════════════════════════════ */
+.teams-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.team-card{border-radius:var(--r);padding:14px 12px 12px;cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid var(--border);position:relative;overflow:hidden}
+.team-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .2s}
+.team-card:hover{transform:translateY(-3px)}
+.team-card.champion-card{border-color:rgba(0,255,136,0.3)!important}
+.team-card.champion-card::after{content:'👑 CHAMPION';position:absolute;top:8px;right:-18px;background:var(--green);color:#000;font-size:8px;font-weight:900;letter-spacing:1px;padding:3px 22px;transform:rotate(35deg);font-family:'Space Mono',monospace}
+.team-emoji{font-size:26px;margin-bottom:6px;display:block}
+.team-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;margin-bottom:2px}
+.team-bar{width:30px;height:2px;margin:6px 0 5px;border-radius:2px}
+.team-captain{font-size:9px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:1px}
+.team-cap-name{font-size:12px;font-weight:700;color:#ddd;margin-bottom:8px}
+.team-record{display:flex;gap:6px;margin-bottom:8px}
+.rec-pill{font-family:'Space Mono',monospace;font-size:9px;padding:2px 7px;border-radius:4px;font-weight:700}
+.rec-w{background:rgba(0,255,136,0.12);color:var(--green);border:1px solid rgba(0,255,136,0.2)}
+.rec-d{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.15)}
+.rec-l{background:rgba(255,45,85,0.1);color:var(--pink);border:1px solid rgba(255,45,85,0.15)}
+.member-list-mini{border-top:1px solid var(--border);padding-top:7px;margin-top:4px;display:flex;flex-direction:column;gap:3px}
+.mini-member{font-size:10.5px;color:#aaa;letter-spacing:.3px;display:flex;align-items:center;gap:4px}
+.mini-member .cap-star{color:var(--gold);font-size:8px}
+
+/* Team detail panel */
+.team-detail{display:none;margin-top:12px}
+.team-detail.open{display:block;animation:fadeIn .2s ease}
+.detail-header{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.detail-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;margin-bottom:8px}
+.detail-stats{display:flex;flex-wrap:wrap;gap:8px}
+.stat-chip{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 12px;text-align:center}
+.stat-chip .val{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--gold);display:block}
+.stat-chip .lbl{font-size:9px;color:var(--muted);letter-spacing:1px;display:block;margin-top:1px}
+.member-cards{display:flex;flex-direction:column;gap:8px}
+.member-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.mc-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;transition:background .15s}
+.mc-header:hover{background:rgba(255,255,255,0.025)}
+.mc-avatar{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;font-family:'Space Mono',monospace}
+.mc-name{flex:1;font-size:14px;font-weight:700;letter-spacing:.5px}
+.mc-total{font-family:'Space Mono',monospace;font-size:12px;color:var(--cyan);font-weight:700}
+.mc-arrow{font-size:10px;color:var(--muted);transition:transform .2s;margin-left:6px}
+.member-card.open .mc-arrow{transform:rotate(180deg)}
+.mc-body{display:none;border-top:1px solid var(--border)}
+.member-card.open .mc-body{display:block}
+.mc-day-grid{overflow-x:auto}
+.mc-day-table{width:100%;border-collapse:collapse;font-size:11px;min-width:320px}
+.mc-day-table th{background:rgba(255,255,255,0.03);padding:7px 10px;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1px;color:var(--muted);text-align:center;border-bottom:1px solid var(--border);white-space:nowrap}
+.mc-day-table th:first-child{text-align:left}
+.mc-day-table td{padding:7px 10px;text-align:center;border-bottom:1px solid var(--border);color:#bbb;font-family:'Space Mono',monospace;font-size:10px}
+.mc-day-table tr:last-child td{border-bottom:none}
+.mc-day-table td:first-child{text-align:left;color:#ddd;font-weight:700}
+.mc-day-table td.warn{color:var(--gold)}
+.mc-day-table td.null{color:var(--pink)}
+.snap-y{color:var(--green);font-weight:900}
+.snap-n{color:var(--muted)}
+.badge-fe{font-size:8px;background:rgba(255,215,0,0.12);color:var(--gold);border:1px solid rgba(255,215,0,0.2);border-radius:3px;padding:1px 4px;margin-left:3px}
+.badge-te{font-size:8px;background:rgba(255,45,85,0.12);color:var(--pink);border:1px solid rgba(255,45,85,0.2);border-radius:3px;padding:1px 4px;margin-left:3px}
+.day-phase-tag{font-size:8px;color:var(--muted2);margin-left:3px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted2);margin-bottom:14px;padding:6px 12px;border-radius:6px;background:var(--bg2);border:1px solid var(--border);transition:all .2s;cursor:pointer}
+.back-btn:hover{color:var(--text);border-color:var(--border2)}
+
+/* ════════════════════════════════
+   RESULTS / SCHEDULE
+════════════════════════════════ */
+.day-block{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:10px}
+.day-hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.025);border-bottom:1px solid var(--border)}
+.day-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--gold)}
+.day-date{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1px}
+.match-row{display:grid;grid-template-columns:28px 1fr auto 1fr 60px;align-items:center;gap:4px;padding:10px 14px;border-bottom:1px solid var(--border);transition:background .15s}
+.match-row:last-child{border-bottom:none}
+.match-row:hover{background:rgba(255,255,255,0.02)}
+.m-num{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px}
+.m-team{font-size:12px;font-weight:700;letter-spacing:.5px}
+.m-team.left{text-align:right}
+.m-team.right{text-align:left}
+.m-vs{text-align:center;font-family:'Space Mono',monospace;font-size:8px;font-weight:900;color:var(--pink);background:rgba(255,45,85,0.08);border:1px solid rgba(255,45,85,0.18);border-radius:5px;padding:3px 7px;white-space:nowrap}
+.m-winner{font-family:'Space Mono',monospace;font-size:9px;text-align:center;padding:2px 6px;border-radius:4px;white-space:nowrap;font-weight:700}
+.m-winner.w1{background:rgba(0,255,136,0.1);color:var(--green);border:1px solid rgba(0,255,136,0.2)}
+.m-winner.w2{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
+.m-winner.draw{background:rgba(157,78,221,0.1);color:var(--purple);border:1px solid rgba(157,78,221,0.2)}
+.phase-label{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--purple);background:rgba(157,78,221,0.1);border:1px solid rgba(157,78,221,0.2);border-radius:4px;padding:2px 7px;margin-bottom:12px;display:inline-block}
+
+/* ════════════════════════════════
+   LEADERBOARD
+════════════════════════════════ */
+.lb-table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);margin-bottom:14px}
+table.lb{width:100%;border-collapse:collapse;min-width:360px}
+table.lb thead th{background:rgba(255,255,255,0.03);padding:9px 12px;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;color:var(--muted);text-align:center;border-bottom:1px solid var(--border);white-space:nowrap}
+table.lb thead th:first-child,table.lb thead th:nth-child(2){text-align:left}
+table.lb tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+table.lb tbody tr:last-child{border-bottom:none}
+table.lb tbody tr:hover{background:rgba(255,255,255,0.025)}
+table.lb tbody td{padding:9px 12px;font-size:11.5px;text-align:center;color:#bbb;font-family:'Space Mono',monospace}
+table.lb tbody td:first-child{text-align:left;width:36px}
+table.lb tbody td:nth-child(2){text-align:left;font-weight:700;color:#e0e0f0;font-family:'Rajdhani',sans-serif;font-size:13px}
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:900;font-family:'Space Mono',monospace}
+.r1{background:linear-gradient(135deg,#FFD700,#FF8C00);color:#000}
+.r2{background:linear-gradient(135deg,#c0c0c0,#888);color:#000}
+.r3{background:linear-gradient(135deg,#cd7f32,#8b4513);color:#fff}
+.rn{background:var(--bg3);color:var(--muted);font-size:9px}
+.pts-val{color:var(--gold);font-weight:900}
+.hours-val{color:var(--cyan)}
+.team-tag{font-size:9px;font-family:'Space Mono',monospace;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:var(--muted2);margin-left:4px;vertical-align:middle}
+.award-tag{font-size:8px;color:var(--gold);font-family:'Space Mono',monospace}
+
+/* Team standings */
+.standings-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);margin-bottom:14px}
+table.st{width:100%;border-collapse:collapse;min-width:420px}
+table.st thead th{background:rgba(255,255,255,0.03);padding:9px 12px;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.5px;color:var(--muted);text-align:center;border-bottom:1px solid var(--border)}
+table.st thead th:nth-child(2){text-align:left}
+table.st tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+table.st tbody tr:last-child{border-bottom:none}
+table.st tbody tr:hover{background:rgba(255,255,255,0.025)}
+table.st tbody td{padding:9px 12px;font-size:11px;text-align:center;color:#bbb;font-family:'Space Mono',monospace}
+table.st tbody td:nth-child(2){text-align:left;font-weight:700;color:#e0e0f0;font-family:'Rajdhani',sans-serif;font-size:13px}
+.elim-row td{opacity:.5}
+.elim-row td:nth-child(2)::after{content:' ☠️';font-size:11px}
+.final-pos{font-size:9px;font-family:'Space Mono',monospace;color:var(--muted);display:block}
+
+/* ════════════════════════════════
+   AWARDS
+════════════════════════════════ */
+.award-hero{background:linear-gradient(135deg,rgba(0,255,136,0.05),rgba(157,78,221,0.08),rgba(0,212,255,0.05));border:1px solid rgba(0,255,136,0.2);border-radius:var(--r);padding:20px;margin-bottom:16px;text-align:center;position:relative;overflow:hidden}
+.award-hero::before{content:'';position:absolute;inset:-50%;background:radial-gradient(ellipse at center,rgba(0,255,136,0.04) 0%,transparent 60%);pointer-events:none}
+.award-hero-emoji{font-size:40px;margin-bottom:8px;display:block}
+.award-hero-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;margin-bottom:2px}
+.award-hero-sub{font-size:11px;color:var(--muted2);line-height:1.7;margin-bottom:10px}
+.sponsor-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);border-radius:5px;padding:3px 10px}
+.award-winner-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;position:relative;overflow:hidden;transition:border-color .2s}
+.award-winner-card:hover{border-color:var(--border2)}
+.award-winner-card .glow{position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none}
+.award-winner-card:hover .glow{opacity:1}
+.award-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+.award-body{flex:1}
+.award-category{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--muted2);margin-bottom:4px;text-transform:uppercase}
+.award-winner-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:2px}
+.award-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
+.award-hours{font-family:'Space Mono',monospace;font-size:11px;color:var(--cyan);font-weight:700}
+.award-team-pill{font-size:9px;font-family:'Space Mono',monospace;padding:2px 8px;border-radius:4px;font-weight:700}
+.award-prize{font-family:'Space Mono',monospace;font-size:9px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);color:var(--green);border-radius:4px;padding:2px 8px;margin-top:4px;display:inline-block}
+.award-desc{font-size:11px;color:var(--muted2);line-height:1.6;margin-top:6px}
+.champion-team-card{background:linear-gradient(135deg,rgba(0,255,136,0.04),rgba(0,212,255,0.04));border:1px solid rgba(0,255,136,0.25);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.champion-team-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;margin-bottom:12px;background:var(--aurora-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.champion-members{display:flex;flex-direction:column;gap:8px}
+.champion-member-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.025);border-radius:8px;border:1px solid rgba(255,255,255,0.05)}
+.champ-name{font-size:13px;font-weight:700;letter-spacing:.5px}
+.champ-note{font-size:10px;color:var(--muted2);margin-left:6px}
+.champ-hours{font-family:'Space Mono',monospace;font-size:11px;color:var(--green);font-weight:700}
+
+/* ════════════════════════════════
+   RULES
+════════════════════════════════ */
+.rules-list{display:flex;flex-direction:column;gap:8px}
+.rule-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.rule-card:hover{border-color:rgba(157,78,221,0.25)}
+.rule-hdr{display:flex;align-items:center;gap:12px;padding:13px 15px;cursor:pointer;user-select:none}
+.rule-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;flex-shrink:0;background:linear-gradient(135deg,var(--purple),#5a1dcc);color:#fff}
+.rule-title-txt{font-size:13px;font-weight:700;flex:1;letter-spacing:.3px}
+.rule-arrow{font-size:9px;color:var(--muted);transition:transform .2s}
+.rule-card.open .rule-arrow{transform:rotate(180deg)}
+.rule-body{display:none;padding:0 15px 14px 55px;font-size:12px;color:#888;line-height:1.9;border-top:1px solid var(--border)}
+.rule-body{padding-top:12px}
+.rule-card.open .rule-body{display:block}
+.hl{display:inline-block;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);color:var(--gold);font-size:11px;font-weight:700;padding:1px 7px;border-radius:4px;margin:1px 2px;font-family:'Space Mono',monospace}
+
+/* ════════════════════════════════
+   CREDITS
+════════════════════════════════ */
+.credits-section{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;margin-top:8px}
+.credits-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;margin-bottom:14px;color:var(--gold)}
+.credits-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.credit-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.credit-emoji{font-size:28px;margin-bottom:6px;display:block}
+.credit-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;margin-bottom:3px}
+.credit-role{font-size:10px;color:var(--muted2);letter-spacing:1px;line-height:1.6}
+.credit-prize{font-family:'Space Mono',monospace;font-size:9px;color:var(--green);border:1px solid rgba(0,255,136,0.2);border-radius:4px;padding:2px 8px;margin-top:6px;display:inline-block}
+.credits-dev{font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:12px;line-height:1.8}
+.credits-dev a{color:var(--cyan);font-weight:700}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:20px 14px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);border-top:1px solid var(--border);letter-spacing:1px;position:relative;z-index:1}
+footer a{color:var(--cyan);font-weight:700}
+
+/* ── UTILS ── */
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}
+.text-center{text-align:center}
+.text-gold{color:var(--gold)}
+.text-green{color:var(--green)}
+.text-cyan{color:var(--cyan)}
+.text-pink{color:var(--pink)}
+.divider{height:1px;background:var(--border);margin:14px 0}
+.empty{text-align:center;padding:30px;color:var(--muted);font-size:12px;font-family:'Space Mono',monospace}
+
+@media(max-width:420px){
+  .teams-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .match-row{grid-template-columns:20px 1fr auto 1fr 54px;gap:3px}
+  .m-team{font-size:10.5px}
+  .credits-duo{grid-template-columns:1fr}
+}
+@media(max-width:340px){
+  .teams-grid{grid-template-columns:1fr}
+}
+/* ════════════════════════════════
+   STATS MODULE CSS
+════════════════════════════════ */
+.member-picker-wrap{position:relative;margin-bottom:16px}
+.member-picker-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:14px;letter-spacing:.5px;outline:none;transition:border-color .2s,box-shadow .2s}
+.member-picker-input:focus{border-color:rgba(157,78,221,.5);box-shadow:0 0 0 3px rgba(157,78,221,.07)}
+.member-picker-dd{position:absolute;top:calc(100% + 5px);left:0;right:0;z-index:200;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);max-height:260px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--muted) transparent;display:none}
+.member-picker-dd.open{display:block;animation:fadeIn .15s ease}
+.mp-opt{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;cursor:pointer;transition:background .12s;font-size:13px;font-weight:700;letter-spacing:.3px}
+.mp-opt:hover{background:var(--bg3)}
+.mp-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted2)}
+
+/* Gauges */
+.gauges-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.gauge-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 6px 10px;text-align:center;transition:border-color .2s,transform .2s}
+.gauge-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.gauge-svg{width:78px;height:78px;display:block;margin:0 auto 5px;overflow:visible}
+.g-track{fill:none;stroke:rgba(255,255,255,0.05);stroke-width:7;stroke-linecap:round}
+.g-fill{fill:none;stroke-width:7;stroke-linecap:round;transform-origin:50% 50%;transform:rotate(-90deg);transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
+.g-val{font-family:'Bebas Neue',sans-serif;font-size:13px}
+.g-pct{font-family:'Space Mono',monospace;font-size:7.5px;fill:#4a4a70}
+.gauge-lbl{display:block;font-family:'Space Mono',monospace;font-size:7.5px;color:var(--muted);letter-spacing:1px;line-height:1.5}
+
+/* Chart box */
+.chart-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:12px}
+.chart-box-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:12px}
+
+/* Bar chart */
+.bar-stage{display:flex;align-items:flex-end;gap:4px}
+.bar-col-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.bar-track{position:relative;width:100%;height:90px}
+.bar-fill{position:absolute;bottom:0;left:0;right:0;border-radius:3px 3px 0 0;height:0;transition:height .9s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.bar-fill:hover{filter:brightness(1.3)}
+.bar-tip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--bg4);border:1px solid var(--border2);border-radius:6px;padding:4px 8px;font-family:'Space Mono',monospace;font-size:9px;white-space:nowrap;z-index:50;color:var(--text);pointer-events:none}
+.bar-fill:hover .bar-tip{display:block}
+.bar-day-label{font-family:'Space Mono',monospace;font-size:7.5px;color:var(--muted)}
+
+/* Phase legend */
+.phase-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.pl-item{font-family:'Space Mono',monospace;font-size:8.5px;display:flex;align-items:center;gap:4px;color:var(--muted2)}
+.pl-dot{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
+
+/* All-members horizontal bars */
+.hmlist{display:flex;flex-direction:column;gap:5px}
+.hml-row{display:grid;grid-template-columns:118px 1fr 68px;align-items:center;gap:8px}
+.hml-name{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}
+.hml-rank{font-family:'Space Mono',monospace;font-size:8.5px;color:var(--muted);min-width:22px}
+.hml-bar-track{height:9px;background:rgba(255,255,255,0.04);border-radius:5px;overflow:hidden}
+.hml-bar-fill{height:100%;border-radius:5px;width:0;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.hml-hrs{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted2);text-align:right}
+
+/* Overview */
+.ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.ov-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center;transition:border-color .2s}
+.ov-card:hover{border-color:var(--border2)}
+.ov-big{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;display:block;margin-bottom:2px}
+.ov-small{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1px;color:var(--muted)}
+
+/* Day winners */
+.dw-list{display:flex;flex-direction:column;gap:5px}
+.dw-row{display:flex;align-items:center;gap:10px;background:var(--bg3);border-radius:8px;padding:8px 12px;border:1px solid var(--border);transition:border-color .2s}
+.dw-row:hover{border-color:var(--border2)}
+.dw-day{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);width:38px;flex-shrink:0}
+.dw-name{flex:1;font-size:13px;font-weight:700}
+.dw-hrs{font-family:'Space Mono',monospace;font-size:10px;color:var(--cyan)}
+.dw-phase{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted2)}
+
+/* Phase performance grid */
+.phase-perf-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pp-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.pp-phase{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;margin-bottom:3px}
+.pp-hrs{font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:1.1}
+.pp-sub{font-family:'Space Mono',monospace;font-size:8.5px;color:var(--muted);margin-top:1px}
+
+/* Radar */
+.radar-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center;overflow:hidden}
+
+/* Empty state */
+.stats-empty{text-align:center;padding:48px 20px;color:var(--muted)}
+.stats-empty .big-e{font-size:44px;display:block;margin-bottom:10px}
+.stats-empty .msg{font-family:'Space Mono',monospace;font-size:11px;line-height:1.9}
+
+@media(max-width:420px){
+  .gauges-row{grid-template-columns:1fr 1fr}
+  .hml-row{grid-template-columns:88px 1fr 54px}
+  .hml-name{font-size:11px}
+  .ov-big{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <div class="challenge-over">COSMIC CLASH 2026 — COMPLETE</div>
+  <div class="logo">COSMIC CLASH</div>
+  <div class="logo-sub">8 TEAMS &nbsp;·&nbsp; 11 DAYS &nbsp;·&nbsp; 1 CHAMPION &nbsp;·&nbsp; MARCH 5–15 2026</div>
+  <div class="champion-banner">
+    <div class="label">🏆 CHAMPIONS 2026</div>
+    <div class="name">🌈 TEAM AURORA 🌈</div>
+    <div class="sub">Captain GARIMA &nbsp;·&nbsp; Crown Reapers</div>
+  </div>
+  <a href="https://t.me/crownreapers" target="_blank" class="tg-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.4l-2.948-.924c-.64-.203-.658-.64.135-.954l11.57-4.461c.537-.194 1.006.131.947.16z"/></svg>
+    Crown Reapers on Telegram
+  </a>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="teams">👑 Teams</button>
+  <button class="tab-btn" data-tab="results">⚔️ Results</button>
+  <button class="tab-btn" data-tab="leaderboard">📊 Rankings</button>
+  <button class="tab-btn" data-tab="awards">🏅 Awards</button>
+  <button class="tab-btn" data-tab="rules">📜 Rules</button>
+  <button class="tab-btn" data-tab="stats">📈 Stats</button>
+</nav>
+
+<!-- TEAMS -->
+<div id="tab-teams" class="tab-content active">
+  <div class="section-label">🌌 The 8 Cosmic Teams — Click to Explore</div>
+  <div class="teams-grid" id="teams-grid"></div>
+  <div id="team-detail-panel"></div>
+</div>
+
+<!-- RESULTS -->
+<div id="tab-results" class="tab-content">
+  <div class="section-label">⚔️ Full Match Results</div>
+  <div class="sub-tabs">
+    <button class="sub-btn active" data-sp="league">📋 League</button>
+    <button class="sub-btn" data-sp="quarter">⚔️ QF</button>
+    <button class="sub-btn" data-sp="secondchance">🔁 2nd Chance</button>
+    <button class="sub-btn" data-sp="semi">🔥 Semis</button>
+    <button class="sub-btn" data-sp="final">👑 Final</button>
+  </div>
+  <div id="results-content"></div>
+</div>
+
+<!-- LEADERBOARD -->
+<div id="tab-leaderboard" class="tab-content">
+  <div class="section-label">📊 Rankings & Standings</div>
+  <div class="sub-tabs">
+    <button class="sub-btn active" data-lp="individual">🏅 Individual</button>
+    <button class="sub-btn" data-lp="teams">🏆 Teams</button>
+  </div>
+  <div id="leaderboard-content"></div>
+</div>
+
+<!-- AWARDS -->
+<div id="tab-awards" class="tab-content">
+  <div class="section-label">🏅 Awards & Recognition</div>
+  <div id="awards-content"></div>
+</div>
+
+<!-- RULES -->
+<div id="tab-rules" class="tab-content">
+  <div class="section-label">📜 Rules & Regulations</div>
+  <div id="rules-content"></div>
+</div>
+
+<!-- STATS -->
+<div id="tab-stats" class="tab-content">
+  <div class="section-label">📈 Performance Analytics</div>
+  <div class="sub-tabs" id="stats-subtabs">
+    <button class="sub-btn active" data-stab="member">👤 Member</button>
+    <button class="sub-btn" data-stab="all">👥 All 48</button>
+    <button class="sub-btn" data-stab="teams">🏆 Teams</button>
+    <button class="sub-btn" data-stab="overview">🌐 Overview</button>
+  </div>
+  <div id="stats-content"></div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  Built with ❤️ for <a href="https://t.me/crownreapers" target="_blank">Crown Reapers</a> &nbsp;·&nbsp;
+  Dev <a href="https://t.me/pyrexus" target="_blank">@pyrexus</a> &nbsp;·&nbsp; Cosmic Clash 2026
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════
+
+const TEAMS = [
+  {name:'NOVA',emoji:'🌟',captain:'CIPHER X',color:'#FFD700',grad:'linear-gradient(135deg,#FFD700,#FF8C00)',
+   members:['QUEEN','DEVIL','ROCKY','STAR ALPHA','SANAM'],result:'League 1st → QF W → SC L'},
+  {name:'VORTEX',emoji:'🌀',captain:'MR FERIT',color:'#9D4EDD',grad:'linear-gradient(135deg,#9D4EDD,#5a1dcc)',
+   members:['SEYRAN','FELSPR','SOUL','LAVENDER','KEDAR'],result:'SF → 4th Place'},
+  {name:'ZENITH',emoji:'⚡',captain:'LILESH',color:'#00D4FF',grad:'linear-gradient(135deg,#00D4FF,#006aab)',
+   members:['KOI TO HU','NAVYA','ETERNITY','SALU BHAI','TULIP'],result:'QF L → SC L → Elim.'},
+  {name:'TITAN',emoji:'🏆',captain:'AYUSHH',color:'#f4a460',grad:'linear-gradient(135deg,#f4a460,#8b4513)',
+   members:['PURVA','ELVYA','KHUSHI','ANCHAL','MURARI'],result:'SF → 3rd Place'},
+  {name:'INFERNO',emoji:'🔥',captain:'EMPEROR',color:'#FF4500',grad:'linear-gradient(135deg,#FF4500,#cc2200)',
+   members:['MARCO','ASPIRANT','DOREMON','PHANTOM','ALARA'],result:'Final Runner-Up 🥈'},
+  {name:'BLAZE',emoji:'💥',captain:'AAKARSH',color:'#FF6B35',grad:'linear-gradient(135deg,#FF6B35,#cc4400)',
+   members:['ROHII','SHAROLET','YASH','DUSKY','ANGEL'],result:'QF L → SC L → Elim.'},
+  {name:'ECLIPSE',emoji:'🌑',captain:'VEGA',color:'#8B5CF6',grad:'linear-gradient(135deg,#8B5CF6,#4c1d95)',
+   members:['IGRIS','COOKIE','ANU','SHREE','SAKURA'],result:'QF W → SC L → Elim.'},
+  {name:'AURORA',emoji:'🌈',captain:'GARIMA',color:'#00FF88',grad:'linear-gradient(135deg,#00FF88,#00cc66)',
+   members:['HIMA','RIYANSH','ASH','BATWOMAN','MANAN'],result:'🏆 CHAMPIONS',champion:true},
+];
+
+// MATCH RESULTS: [day, phase, match, team1, team2, winner, t1pts, t2pts]
+const MATCHES = [
+  [1,'league',1,'NOVA','AURORA','NOVA',3,0],
+  [1,'league',2,'VORTEX','ECLIPSE','VORTEX',3,0],
+  [1,'league',3,'ZENITH','BLAZE','ZENITH',3,0],
+  [1,'league',4,'TITAN','INFERNO','INFERNO',0,3],
+  [2,'league',1,'NOVA','ECLIPSE','NOVA',3,0],
+  [2,'league',2,'VORTEX','INFERNO','INFERNO',0,3],
+  [2,'league',3,'ZENITH','TITAN','ZENITH',3,0],
+  [2,'league',4,'BLAZE','AURORA','BLAZE',3,0],
+  [3,'league',1,'NOVA','BLAZE','NOVA',3,0],
+  [3,'league',2,'VORTEX','ZENITH','ZENITH',0,3],
+  [3,'league',3,'TITAN','AURORA','AURORA',0,3],
+  [3,'league',4,'INFERNO','ECLIPSE','INFERNO',3,0],
+  [4,'league',1,'NOVA','INFERNO','NOVA',3,0],
+  [4,'league',2,'VORTEX','AURORA','AURORA',0,3],
+  [4,'league',3,'ZENITH','ECLIPSE','ZENITH',3,0],
+  [4,'league',4,'TITAN','BLAZE','TITAN',3,0],
+  [5,'league',1,'NOVA','TITAN','TITAN',0,3],
+  [5,'league',2,'VORTEX','BLAZE','BLAZE',0,3],
+  [5,'league',3,'ZENITH','INFERNO','ZENITH',3,0],
+  [5,'league',4,'ECLIPSE','AURORA','AURORA',0,3],
+  [6,'league',1,'NOVA','ZENITH','NOVA',3,0],
+  [6,'league',2,'VORTEX','TITAN','TITAN',0,3],
+  [6,'league',3,'INFERNO','AURORA','INFERNO',3,0],
+  [6,'league',4,'BLAZE','ECLIPSE','ECLIPSE',0,3],
+  [7,'league',1,'NOVA','VORTEX','NOVA',3,0],
+  [7,'league',2,'ZENITH','AURORA','AURORA',0,3],
+  [7,'league',3,'TITAN','ECLIPSE','TITAN',3,0],
+  [7,'league',4,'INFERNO','BLAZE','INFERNO',3,0],
+  [8,'quarter',1,'NOVA','INFERNO','NOVA',3,0],
+  [8,'quarter',2,'ZENITH','TITAN','TITAN',0,3],
+  [8,'quarter',3,'AURORA','BLAZE','AURORA',3,0],
+  [8,'quarter',4,'VORTEX','ECLIPSE','ECLIPSE',0,3],
+  [9,'secondchance',1,'NOVA','TITAN','TITAN',0,3],
+  [9,'secondchance',2,'AURORA','ECLIPSE','AURORA',3,0],
+  [9,'secondchance',3,'INFERNO','ZENITH','INFERNO',3,0],
+  [9,'secondchance',4,'BLAZE','VORTEX','VORTEX',0,3],
+  [10,'semi',1,'TITAN','INFERNO','INFERNO',0,3],
+  [10,'semi',2,'AURORA','VORTEX','AURORA',3,0],
+  [11,'final',1,'INFERNO','AURORA','AURORA',0,3],
+];
+
+const DAY_DATES = {
+  1:'Mar 5',2:'Mar 6',3:'Mar 7',4:'Mar 8',5:'Mar 9',6:'Mar 10',
+  7:'Mar 11',8:'Mar 12',9:'Mar 13',10:'Mar 14',11:'Mar 15'
+};
+const DAY_LABELS = {
+  1:'Day 1 — League',2:'Day 2 — League',3:'Day 3 — League',4:'Day 4 — League',
+  5:'Day 5 — League',6:'Day 6 — League',7:'Day 7 — League',
+  8:'Day 8 — Quarterfinals',9:'Day 9 — Second Chance',
+  10:'Day 10 — Semifinals',11:'Day 11 — Grand Final'
+};
+const PHASE_LABELS = {
+  league:'📋 League Stage',quarter:'⚔️ Quarterfinals — Day 8',
+  secondchance:'🔁 Second Chance — Day 9',semi:'🔥 Semifinals — Day 10',final:'👑 Grand Final — Day 11'
+};
+
+// SUBMISSIONS: [day, member, team, adj_sec, focus_sec, snap, focusExc, timeExc]
+const SUBS = [
+  // DAY 1
+  [1,'BATWOMAN','AURORA',71110,13186,1,0,0],[1,'GARIMA','AURORA',69102,15196,1,0,0],
+  [1,'ASH','AURORA',34405,18634,1,1,0],[1,'HIMA','AURORA',68673,8973,1,0,0],
+  [1,'RIYANSH','AURORA',56934,11899,1,0,0],[1,'MANAN','AURORA',44948,17597,1,0,0],
+  [1,'VEGA','ECLIPSE',69876,13160,1,0,0],[1,'IGRIS','ECLIPSE',68654,14399,1,0,0],
+  [1,'SHREE','ECLIPSE',67082,16884,1,0,0],[1,'ANU','ECLIPSE',61863,12952,1,0,0],
+  [1,'COOKIE','ECLIPSE',58911,8376,1,0,0],[1,'SAKURA','ECLIPSE',58054,14998,1,0,0],
+  [1,'ANGEL','BLAZE',71941,14176,1,0,0],[1,'YASH','BLAZE',68490,4873,1,0,0],
+  [1,'AAKARSH','BLAZE',61283,11376,1,0,0],[1,'SHAROLET','BLAZE',59164,11241,1,0,0],
+  [1,'DUSKY','BLAZE',54894,7292,1,0,0],[1,'ROHII','BLAZE',48699,11758,1,0,0],
+  [1,'MARCO','INFERNO',71942,12751,1,0,0],[1,'PHANTOM','INFERNO',71942,8000,1,0,0],
+  [1,'EMPEROR','INFERNO',71747,9000,1,0,0],[1,'ASPIRANT','INFERNO',70485,17640,1,0,0],
+  [1,'DOREMON','INFERNO',62059,12878,1,0,0],[1,'ALARA','INFERNO',61356,9165,1,0,0],
+  [1,'AYUSHH','TITAN',71639,17476,1,0,0],[1,'ELVYA','TITAN',71389,10381,1,0,0],
+  [1,'TONMOY','TITAN',57776,5688,1,0,0],[1,'PIYUSH','TITAN',52768,6174,1,0,0],
+  [1,'MURARI','TITAN',50562,12343,1,0,0],[1,'PURVA','TITAN',43275,8827,1,0,0],
+  [1,'LILESH','ZENITH',71999,11657,1,0,0],[1,'NAVYA','ZENITH',71999,7532,1,0,0],
+  [1,'KOI TO HU','ZENITH',71998,12328,1,0,0],[1,'TULIP','ZENITH',65010,9355,1,0,0],
+  [1,'SALU BHAI','ZENITH',61141,17820,1,0,0],[1,'ETERNITY','ZENITH',55468,13874,1,0,0],
+  [1,'FELSPR','VORTEX',71999,17829,1,0,0],[1,'MR FERIT','VORTEX',71313,9174,1,0,0],
+  [1,'SOUL','VORTEX',70183,9245,1,0,0],[1,'SEYRAN','VORTEX',70012,8353,1,0,0],
+  [1,'KEDAR','VORTEX',52999,15298,1,0,0],[1,'LAVENDER','VORTEX',50435,11566,1,0,0],
+  [1,'DEVIL','NOVA',71955,17640,1,0,0],[1,'QUEEN','NOVA',69770,15301,1,0,0],
+  [1,'ROCKY','NOVA',68564,9093,1,0,0],[1,'SANAM','NOVA',65057,8540,1,0,0],
+  [1,'STAR ALPHA','NOVA',64664,10153,1,0,0],[1,'CIPHER X','NOVA',63658,13860,1,0,0],
+  // DAY 2
+  [2,'HIMA','AURORA',71997,10036,1,0,0],[2,'GARIMA','AURORA',71994,9520,1,0,0],
+  [2,'RIYANSH','AURORA',66573,12165,1,0,0],[2,'BATWOMAN','AURORA',61283,10965,1,0,0],
+  [2,'ASH','AURORA',43722,5363,1,0,0],[2,'MANAN','AURORA',38914,12574,1,0,0],
+  [2,'ANU','ECLIPSE',71970,15599,1,0,0],[2,'VEGA','ECLIPSE',71855,16266,1,0,0],
+  [2,'COOKIE','ECLIPSE',65514,12865,1,0,0],[2,'SHREE','ECLIPSE',64340,15031,1,0,0],
+  [2,'SAKURA','ECLIPSE',64131,15696,1,0,0],[2,'IGRIS','ECLIPSE',55426,4921,1,0,0],
+  [2,'ANGEL','BLAZE',71943,11772,1,0,0],[2,'DUSKY','BLAZE',71625,12928,1,0,0],
+  [2,'AAKARSH','BLAZE',69749,15919,1,0,0],[2,'YASH','BLAZE',67966,6585,1,0,0],
+  [2,'SHAROLET','BLAZE',65702,10600,1,0,0],[2,'ROHII','BLAZE',63166,10671,1,0,0],
+  [2,'ASPIRANT','INFERNO',71943,17880,1,0,0],[2,'MARCO','INFERNO',68111,10579,1,0,0],
+  [2,'EMPEROR','INFERNO',65757,11454,1,0,0],[2,'DOREMON','INFERNO',65608,9943,1,0,0],
+  [2,'PHANTOM','INFERNO',61937,10215,1,0,0],[2,'ALARA','INFERNO',61384,7419,1,0,0],
+  [2,'PURVA','TITAN',71999,14343,1,0,0],[2,'AYUSHH','TITAN',71220,14294,1,0,0],
+  [2,'ELVYA','TITAN',70168,16178,1,0,0],[2,'MURARI','TITAN',65661,9957,1,0,0],
+  [2,'TONMOY','TITAN',61786,8749,1,0,0],[2,'PIYUSH','TITAN',55855,10332,1,0,0],
+  [2,'NAVYA','ZENITH',71627,9113,1,0,0],[2,'LILESH','ZENITH',70202,9812,1,0,0],
+  [2,'KOI TO HU','ZENITH',70201,5999,1,0,0],[2,'SALU BHAI','ZENITH',68941,17940,1,0,0],
+  [2,'ETERNITY','ZENITH',64396,12670,1,0,0],[2,'TULIP','ZENITH',58660,6524,1,0,0],
+  [2,'FELSPR','VORTEX',71904,13684,1,0,0],[2,'MR FERIT','VORTEX',71438,14940,1,0,0],
+  [2,'SOUL','VORTEX',66536,11916,1,0,0],[2,'SEYRAN','VORTEX',66206,10391,1,0,0],
+  [2,'LAVENDER','VORTEX',60289,12600,1,0,0],[2,'KEDAR','VORTEX',52569,14176,1,0,0],
+  [2,'CIPHER X','NOVA',71999,14220,1,0,0],[2,'DEVIL','NOVA',71999,17937,1,0,0],
+  [2,'ROCKY','NOVA',71945,10539,1,0,0],[2,'QUEEN','NOVA',69714,16757,1,0,0],
+  [2,'SANAM','NOVA',65853,8897,1,0,0],[2,'STAR ALPHA','NOVA',65022,17617,1,0,0],
+  // DAY 3
+  [3,'GARIMA','AURORA',71998,11239,1,0,0],[3,'HIMA','AURORA',70200,10036,1,0,0],
+  [3,'BATWOMAN','AURORA',61415,8452,1,0,0],[3,'RIYANSH','AURORA',60760,14912,1,0,0],
+  [3,'ASH','AURORA',59983,9007,1,0,0],[3,'MANAN','AURORA',45974,4817,1,0,0],
+  [3,'VEGA','ECLIPSE',35666,19615,1,1,0],[3,'COOKIE','ECLIPSE',70430,13899,1,0,0],
+  [3,'SHREE','ECLIPSE',70263,17880,1,0,0],[3,'ANU','ECLIPSE',60042,12802,1,0,0],
+  [3,'IGRIS','ECLIPSE',59075,7589,1,0,0],[3,'SAKURA','ECLIPSE',57980,14802,1,0,0],
+  [3,'ROHII','BLAZE',71982,11632,1,0,0],[3,'AAKARSH','BLAZE',71795,16737,1,0,0],
+  [3,'YASH','BLAZE',71753,9509,1,0,0],[3,'DUSKY','BLAZE',70426,17151,1,0,0],
+  [3,'SHAROLET','BLAZE',49203,11402,1,0,0],[3,'ANGEL','BLAZE',42308,10800,1,0,0],
+  [3,'MARCO','INFERNO',71515,13870,1,0,0],[3,'ALARA','INFERNO',69915,8827,1,0,0],
+  [3,'ASPIRANT','INFERNO',69128,16800,1,0,0],[3,'DOREMON','INFERNO',68783,9088,1,0,0],
+  [3,'EMPEROR','INFERNO',65969,17003,1,0,0],[3,'PHANTOM','INFERNO',54010,10140,1,0,0],
+  [3,'PURVA','TITAN',71999,10150,1,0,0],[3,'AYUSHH','TITAN',35920,18884,1,1,0],
+  [3,'ELVYA','TITAN',70513,6793,1,0,0],[3,'MURARI','TITAN',66877,17474,1,0,0],
+  [3,'TONMOY','TITAN',65939,11167,1,0,0],[3,'PIYUSH','TITAN',57606,8434,1,0,0],
+  [3,'NAVYA','ZENITH',71999,10671,1,0,0],[3,'KOI TO HU','ZENITH',71998,6078,1,0,0],
+  [3,'ETERNITY','ZENITH',71155,17161,1,0,0],[3,'LILESH','ZENITH',69029,17560,1,0,0],
+  [3,'SALU BHAI','ZENITH',59912,14880,1,0,0],[3,'TULIP','ZENITH',58899,9112,1,0,0],
+  [3,'MR FERIT','VORTEX',71957,17160,1,0,0],[3,'SEYRAN','VORTEX',71906,15691,1,0,0],
+  [3,'SOUL','VORTEX',65357,11357,1,0,0],[3,'FELSPR','VORTEX',64771,13684,1,0,0],
+  [3,'LAVENDER','VORTEX',62552,17940,1,0,0],[3,'KEDAR','VORTEX',27771,19543,1,1,0],
+  [3,'ROCKY','NOVA',71989,7976,1,0,0],[3,'CIPHER X','NOVA',69930,17414,1,0,0],
+  [3,'SANAM','NOVA',69649,7976,1,0,0],[3,'QUEEN','NOVA',67335,9553,1,0,0],
+  [3,'DEVIL','NOVA',71941,17820,1,0,0],[3,'STAR ALPHA','NOVA',65346,8579,1,0,0],
+  // DAY 4
+  [4,'AAKARSH','BLAZE',47788,13293,1,0,0],[4,'ROHII','BLAZE',55372,13968,1,0,0],
+  [4,'SHAROLET','BLAZE',54506,17999,1,0,0],[4,'YASH','BLAZE',65631,9294,0,0,0],
+  [4,'DUSKY','BLAZE',60469,9450,1,0,0],[4,'ANGEL','BLAZE',57933,9794,1,0,0],
+  [4,'CIPHER X','NOVA',61380,17640,1,0,0],[4,'QUEEN','NOVA',69879,17640,1,0,0],
+  [4,'DEVIL','NOVA',65640,17940,1,0,0],[4,'ROCKY','NOVA',71405,10857,1,0,0],
+  [4,'STAR ALPHA','NOVA',71201,9190,1,0,0],[4,'SANAM','NOVA',52201,8315,1,0,0],
+  [4,'AYUSHH','TITAN',66438,13131,1,0,0],[4,'PURVA','TITAN',71999,11355,1,0,0],
+  [4,'ELVYA','TITAN',46106,5684,1,0,0],[4,'KHUSHI','TITAN',62075,12209,1,0,0],
+  [4,'PIYUSH','TITAN',57600,7200,1,0,0],[4,'MURARI','TITAN',62928,14311,1,0,0],
+  [4,'LILESH','ZENITH',71174,15935,1,0,0],[4,'NAVYA','ZENITH',71999,6038,1,0,0],
+  [4,'ANUSHKA','ZENITH',71941,7257,1,0,0],[4,'ETERNITY','ZENITH',68432,12755,1,0,0],
+  [4,'SIRIUS','ZENITH',68624,17280,1,0,0],[4,'TULIP','ZENITH',53206,17944,1,0,0],
+  [4,'SHREE','ECLIPSE',35940,18240,1,1,0],[4,'ANU','ECLIPSE',66973,12900,1,0,0],
+  [4,'SAKURA','ECLIPSE',66350,12618,1,0,0],[4,'IGRIS','ECLIPSE',64850,11473,1,0,0],
+  [4,'COOKIE','ECLIPSE',61034,10217,1,0,0],[4,'VEGA','ECLIPSE',70463,13958,1,0,0],
+  [4,'MARCO','INFERNO',70958,10630,1,0,0],[4,'ALARA','INFERNO',54251,10215,1,0,0],
+  [4,'ASPIRANT','INFERNO',68285,17094,1,0,0],[4,'DOREMON','INFERNO',56537,12374,1,0,0],
+  [4,'EMPEROR','INFERNO',66600,17999,1,0,0],[4,'PHANTOM','INFERNO',53557,10363,1,0,0],
+  [4,'GARIMA','AURORA',71909,13512,1,0,0],[4,'HIMA','AURORA',71417,8607,1,0,0],
+  [4,'RIYANSH','AURORA',70140,8522,1,0,0],[4,'ASH','AURORA',54168,5874,1,0,0],
+  [4,'BATWOMAN','AURORA',69776,13800,1,0,0],[4,'MANAN','AURORA',35265,5977,1,0,0],
+  [4,'MR FERIT','VORTEX',70214,17160,1,0,0],[4,'FELSPR','VORTEX',68399,10417,1,0,0],
+  [4,'SEYRAN','VORTEX',68807,10430,1,0,0],[4,'LAVENDER','VORTEX',55187,15180,1,0,0],
+  [4,'SOUL','VORTEX',48641,11640,1,0,0],[4,'KEDAR','VORTEX',44757,15600,1,0,0],
+  // DAY 5
+  [5,'LILESH','ZENITH',70295,10340,1,0,0],[5,'NAVYA','ZENITH',71999,6671,1,0,0],
+  [5,'KOI TO HU','ZENITH',71945,14292,1,0,0],[5,'SALU BHAI','ZENITH',71675,17397,1,0,0],
+  [5,'ETERNITY','ZENITH',71017,14963,1,0,0],[5,'TULIP','ZENITH',71999,12512,1,0,0],
+  [5,'AAKARSH','BLAZE',64441,13680,1,0,0],[5,'ROHII','BLAZE',55514,17999,1,0,0],
+  [5,'SHAROLET','BLAZE',65947,11910,1,0,0],[5,'YASH','BLAZE',25376,19285,0,1,0],
+  [5,'DUSKY','BLAZE',60349,6761,1,0,0],[5,'ANGEL','BLAZE',54176,11158,1,0,0],
+  [5,'CIPHER X','NOVA',71997,15840,1,0,0],[5,'SANAM','NOVA',66523,11820,1,0,0],
+  [5,'QUEEN','NOVA',56914,15106,1,0,0],[5,'ROCKY','NOVA',71996,16343,1,0,0],
+  [5,'STAR ALPHA','NOVA',71885,8872,1,0,0],[5,'DEVIL','NOVA',35316,18791,1,1,0],
+  [5,'AYUSHH','TITAN',59385,8589,1,0,0],[5,'PURVA','TITAN',71999,14340,1,0,0],
+  [5,'ELVYA','TITAN',70945,7744,1,0,0],[5,'KHUSHI','TITAN',71999,11275,1,0,0],
+  [5,'ANCHAL','TITAN',71983,10985,1,0,0],[5,'MURARI','TITAN',69038,15039,1,0,0],
+  [5,'MARCO','INFERNO',71744,7687,1,0,0],[5,'ALARA','INFERNO',64474,9017,1,0,0],
+  [5,'ASPIRANT','INFERNO',69924,16800,1,0,0],[5,'DOREMON','INFERNO',54702,9500,1,0,0],
+  [5,'EMPEROR','INFERNO',71738,8089,1,0,0],[5,'PHANTOM','INFERNO',51156,7918,1,0,0],
+  [5,'SHREE','ECLIPSE',58629,17999,0,0,0],[5,'ANU','ECLIPSE',48933,13000,1,0,0],
+  [5,'SAKURA','ECLIPSE',49537,17100,1,0,0],[5,'IGRIS','ECLIPSE',58987,7704,1,0,0],
+  [5,'COOKIE','ECLIPSE',69543,10453,1,0,0],[5,'VEGA','ECLIPSE',70628,13620,1,0,0],
+  [5,'MR FERIT','VORTEX',69999,15523,1,0,0],[5,'FELSPR','VORTEX',71999,13222,1,0,0],
+  [5,'SEYRAN','VORTEX',65212,12038,1,0,0],[5,'KEDAR','VORTEX',52532,13835,1,0,0],
+  [5,'LAVENDER','VORTEX',58935,16680,1,0,0],[5,'SOUL','VORTEX',50472,8340,1,0,0],
+  [5,'GARIMA','AURORA',71954,11852,1,0,0],[5,'HIMA','AURORA',69548,9616,1,0,0],
+  [5,'RIYANSH','AURORA',71715,8522,1,0,0],[5,'ASH','AURORA',57724,12421,1,0,0],
+  [5,'BATWOMAN','AURORA',61993,13419,1,0,0],[5,'MANAN','AURORA',37260,8605,1,0,0],
+  // DAY 6
+  [6,'SHREE','ECLIPSE',53380,16320,1,0,0],[6,'ANU','ECLIPSE',33844,18747,1,1,0],
+  [6,'SAKURA','ECLIPSE',44715,7950,1,0,0],[6,'IGRIS','ECLIPSE',68585,8260,1,0,0],
+  [6,'COOKIE','ECLIPSE',70116,13162,1,0,0],[6,'VEGA','ECLIPSE',65490,16243,1,0,0],
+  [6,'MARCO','INFERNO',71825,16514,1,0,0],[6,'ALARA','INFERNO',64611,8748,1,0,0],
+  [6,'ASPIRANT','INFERNO',69965,17400,1,0,0],[6,'DOREMON','INFERNO',70064,13154,1,0,0],
+  [6,'EMPEROR','INFERNO',71998,15561,1,0,0],[6,'PHANTOM','INFERNO',68408,11334,1,0,0],
+  [6,'LILESH','ZENITH',71999,11572,1,0,0],[6,'NAVYA','ZENITH',71999,12206,1,0,0],
+  [6,'KOI TO HU','ZENITH',71998,12108,1,0,0],[6,'SALU BHAI','ZENITH',71999,14509,1,0,0],
+  [6,'ETERNITY','ZENITH',71088,11706,1,0,0],[6,'TULIP','ZENITH',71941,8734,1,0,0],
+  [6,'MR FERIT','VORTEX',71997,8306,1,0,0],[6,'FELSPR','VORTEX',71999,10377,1,0,0],
+  [6,'SEYRAN','VORTEX',58885,10434,1,0,0],[6,'KEDAR','VORTEX',46420,15360,1,0,0],
+  [6,'LAVENDER','VORTEX',70921,15118,1,0,0],[6,'SOUL','VORTEX',62116,13207,1,0,0],
+  [6,'AYUSHH','TITAN',70391,10511,1,0,0],[6,'PURVA','TITAN',71999,12783,1,0,0],
+  [6,'ELVYA','TITAN',66748,15064,1,0,0],[6,'KHUSHI','TITAN',71972,14170,1,0,0],
+  [6,'ANCHAL','TITAN',71999,17999,1,0,0],[6,'MURARI','TITAN',70314,13311,1,0,0],
+  [6,'AAKARSH','BLAZE',52341,15960,1,0,0],[6,'ROHII','BLAZE',57181,12930,1,0,0],
+  [6,'SHAROLET','BLAZE',44366,6480,1,0,0],[6,'YASH','BLAZE',53039,8489,1,0,0],
+  [6,'DUSKY','BLAZE',57806,10897,1,0,0],[6,'ANGEL','BLAZE',24694,26717,1,1,0],
+  [6,'CIPHER X','NOVA',65279,17825,1,0,0],[6,'QUEEN','NOVA',71631,16383,1,0,0],
+  [6,'ROCKY','NOVA',71995,10328,1,0,0],[6,'DEVIL','NOVA',66249,17889,1,0,0],
+  [6,'SANAM','NOVA',71999,13739,1,0,0],[6,'STAR ALPHA','NOVA',71999,13949,1,0,0],
+  [6,'GARIMA','AURORA',71767,13199,1,0,0],[6,'HIMA','AURORA',70869,7491,1,0,0],
+  [6,'RIYANSH','AURORA',69848,12004,1,0,0],[6,'ASH','AURORA',64180,10473,1,0,0],
+  [6,'BATWOMAN','AURORA',65921,11296,1,0,0],[6,'MANAN','AURORA',28364,14167,1,0,0],
+  // DAY 7
+  [7,'MARCO','INFERNO',70849,12335,1,0,0],[7,'ALARA','INFERNO',52972,10008,1,0,0],
+  [7,'ASPIRANT','INFERNO',71442,16210,1,0,0],[7,'DOREMON','INFERNO',61984,11512,1,0,0],
+  [7,'EMPEROR','INFERNO',70277,13390,1,0,0],[7,'PHANTOM','INFERNO',59425,10492,1,0,0],
+  [7,'SHREE','ECLIPSE',56735,13214,1,0,0],[7,'ANU','ECLIPSE',68970,13486,1,0,0],
+  [7,'SAKURA','ECLIPSE',54097,17435,1,0,0],[7,'IGRIS','ECLIPSE',61844,6927,1,0,0],
+  [7,'COOKIE','ECLIPSE',69670,13279,1,0,0],[7,'VEGA','ECLIPSE',35271,18260,1,1,0],
+  [7,'AYUSHH','TITAN',65415,11663,1,0,0],[7,'PURVA','TITAN',71999,12348,1,0,0],
+  [7,'ELVYA','TITAN',70157,8387,1,0,0],[7,'KHUSHI','TITAN',69693,8188,1,0,0],
+  [7,'ANCHAL','TITAN',68437,16149,1,0,0],[7,'MURARI','TITAN',66901,12418,1,0,0],
+  [7,'AAKARSH','BLAZE',58149,13971,1,0,0],[7,'ROHII','BLAZE',46997,9276,1,0,0],
+  [7,'SHAROLET','BLAZE',51091,7474,1,0,0],[7,'YASH','BLAZE',57769,10816,1,0,0],
+  [7,'DUSKY','BLAZE',61599,7867,1,0,0],[7,'ANGEL','BLAZE',23556,16377,1,0,0],
+  [7,'LILESH','ZENITH',57332,17332,0,0,0],[7,'NAVYA','ZENITH',71999,9849,1,0,0],
+  [7,'KOI TO HU','ZENITH',65822,8572,1,0,0],[7,'SALU BHAI','ZENITH',65101,17760,1,0,0],
+  [7,'ETERNITY','ZENITH',59402,12798,1,0,0],[7,'TULIP','ZENITH',62105,7301,1,0,0],
+  [7,'CIPHER X','NOVA',67129,17640,1,0,0],[7,'QUEEN','NOVA',70316,15703,1,0,0],
+  [7,'DEVIL','NOVA',64378,17278,1,0,0],[7,'ROCKY','NOVA',70352,9396,1,0,0],
+  [7,'STAR ALPHA','NOVA',68683,7145,1,0,0],[7,'SANAM','NOVA',69711,9056,1,0,0],
+  [7,'MR FERIT','VORTEX',71863,10813,1,0,0],[7,'FELSPR','VORTEX',64799,12947,1,0,0],
+  [7,'SEYRAN','VORTEX',55285,17999,1,0,0],[7,'KEDAR','VORTEX',66679,12650,1,0,0],
+  [7,'LAVENDER','VORTEX',50864,13560,1,0,0],[7,'SOUL','VORTEX',65198,15697,1,0,0],
+  [7,'GARIMA','AURORA',71994,11520,1,0,0],[7,'HIMA','AURORA',71548,8177,1,0,0],
+  [7,'RIYANSH','AURORA',71458,17940,1,0,0],[7,'ASH','AURORA',61235,8886,1,0,0],
+  [7,'BATWOMAN','AURORA',71748,16474,1,0,0],[7,'MANAN','AURORA',61209,15319,1,0,0],
+  // DAY 8 — QF
+  [8,'AAKARSH','BLAZE',61929,9819,1,0,0],[8,'ROHII','BLAZE',52526,6043,1,0,0],
+  [8,'SHAROLET','BLAZE',58346,5852,1,0,0],[8,'YASH','BLAZE',59742,12615,1,0,0],
+  [8,'DUSKY','BLAZE',54032,11485,1,0,0],[8,'ANGEL','BLAZE',49003,14818,1,0,0],
+  [8,'SHREE','ECLIPSE',34510,11603,1,0,0],[8,'ANU','ECLIPSE',66973,17999,1,0,0],
+  [8,'SAKURA','ECLIPSE',60718,15720,1,0,0],[8,'IGRIS','ECLIPSE',63622,9300,1,0,0],
+  [8,'COOKIE','ECLIPSE',69412,17999,1,0,0],[8,'VEGA','ECLIPSE',62127,14682,1,0,0],
+  [8,'AYUSHH','TITAN',71872,10445,1,0,0],[8,'PURVA','TITAN',71999,14247,1,0,0],
+  [8,'ELVYA','TITAN',69904,11822,1,0,0],[8,'KHUSHI','TITAN',71945,6000,1,0,0],
+  [8,'ANCHAL','TITAN',71943,17033,1,0,0],[8,'MURARI','TITAN',54000,17999,1,0,0],
+  [8,'MARCO','INFERNO',69540,14115,1,0,0],[8,'ALARA','INFERNO',70646,13972,1,0,0],
+  [8,'ASPIRANT','INFERNO',70849,17400,1,0,0],[8,'DOREMON','INFERNO',58071,9773,1,0,0],
+  [8,'EMPEROR','INFERNO',69489,13527,1,0,0],[8,'PHANTOM','INFERNO',51775,11017,1,0,0],
+  [8,'GARIMA','AURORA',71595,12105,1,0,0],[8,'HIMA','AURORA',71947,10611,1,0,0],
+  [8,'RIYANSH','AURORA',68510,14111,1,0,0],[8,'ASH','AURORA',61424,9951,1,0,0],
+  [8,'BATWOMAN','AURORA',69202,13179,1,0,0],[8,'MANAN','AURORA',56683,14809,1,0,0],
+  [8,'LILESH','ZENITH',70466,13884,1,0,0],[8,'NAVYA','ZENITH',71837,17889,1,0,0],
+  [8,'KOI TO HU','ZENITH',71996,13067,1,0,0],[8,'SALU BHAI','ZENITH',71998,17903,1,0,0],
+  [8,'ETERNITY','ZENITH',66481,13495,1,0,0],[8,'TULIP','ZENITH',46829,5080,1,0,0],
+  [8,'CIPHER X','NOVA',66259,17880,1,0,0],[8,'QUEEN','NOVA',58494,14276,1,0,0],
+  [8,'DEVIL','NOVA',64704,17880,1,0,0],[8,'ROCKY','NOVA',71183,6597,1,0,0],
+  [8,'STAR ALPHA','NOVA',70851,10889,1,0,0],[8,'SANAM','NOVA',62135,14040,1,0,0],
+  [8,'MR FERIT','VORTEX',63565,17999,1,0,0],[8,'FELSPR','VORTEX',64799,11829,1,0,0],
+  [8,'SEYRAN','VORTEX',43607,11680,1,0,0],[8,'KEDAR','VORTEX',56840,12650,1,0,0],
+  [8,'LAVENDER','VORTEX',55996,14220,1,0,0],[8,'SOUL','VORTEX',56838,13446,1,0,0],
+  // DAY 9 — SC
+  [9,'SHREE','ECLIPSE',58629,17999,1,0,0],[9,'ANU','ECLIPSE',34713,9614,0,0,0],
+  [9,'SAKURA','ECLIPSE',51474,17795,1,0,0],[9,'IGRIS','ECLIPSE',56716,9614,0,0,0],
+  [9,'COOKIE','ECLIPSE',63746,12951,0,0,0],[9,'VEGA','ECLIPSE',71658,13242,1,0,0],
+  [9,'LILESH','ZENITH',71998,10393,1,0,0],[9,'NAVYA','ZENITH',71547,11294,1,0,0],
+  [9,'KOI TO HU','ZENITH',71999,9840,1,0,0],[9,'SALU BHAI','ZENITH',64378,15240,1,0,0],
+  [9,'ETERNITY','ZENITH',71109,13492,1,0,0],[9,'TULIP','ZENITH',71999,12842,1,0,0],
+  [9,'MARCO','INFERNO',71944,10802,1,0,0],[9,'ALARA','INFERNO',71944,10328,1,0,0],
+  [9,'ASPIRANT','INFERNO',71952,17580,1,0,0],[9,'DOREMON','INFERNO',71771,9601,1,0,0],
+  [9,'EMPEROR','INFERNO',71947,13871,1,0,0],[9,'PHANTOM','INFERNO',71983,7738,1,0,0],
+  [9,'AAKARSH','BLAZE',63919,12498,1,0,0],[9,'ROHII','BLAZE',71927,7896,1,0,0],
+  [9,'SHAROLET','BLAZE',69078,13440,1,0,0],[9,'YASH','BLAZE',50635,8698,1,0,0],
+  [9,'DUSKY','BLAZE',68110,10141,1,0,0],[9,'ANGEL','BLAZE',71924,12660,1,0,0],
+  [9,'GARIMA','AURORA',71909,13512,1,0,0],[9,'HIMA','AURORA',71943,10439,1,0,0],
+  [9,'RIYANSH','AURORA',71116,13867,1,0,0],[9,'ASH','AURORA',61235,8886,1,0,0],
+  [9,'BATWOMAN','AURORA',65712,11287,1,0,0],[9,'MANAN','AURORA',63405,13818,1,0,0],
+  [9,'CIPHER X','NOVA',71984,17461,1,0,0],[9,'QUEEN','NOVA',70939,17492,1,0,0],
+  [9,'DEVIL','NOVA',62261,17640,1,0,0],[9,'ROCKY','NOVA',67003,17999,1,0,0],
+  [9,'STAR ALPHA','NOVA',71996,10288,1,0,0],[9,'SANAM','NOVA',61492,7763,1,0,0],
+  [9,'MR FERIT','VORTEX',71508,14419,1,0,0],[9,'FELSPR','VORTEX',71999,13962,1,0,0],
+  [9,'SEYRAN','VORTEX',71760,17460,1,0,0],[9,'KEDAR','VORTEX',54601,13179,1,0,0],
+  [9,'LAVENDER','VORTEX',60551,12720,1,0,0],[9,'SOUL','VORTEX',70246,12959,1,0,0],
+  [9,'AYUSHH','TITAN',70985,16804,1,0,0],[9,'PURVA','TITAN',71999,13468,1,0,0],
+  [9,'ELVYA','TITAN',71796,7948,1,0,0],[9,'KHUSHI','TITAN',71999,11025,1,0,0],
+  [9,'ANCHAL','TITAN',68863,10282,1,0,0],[9,'MURARI','TITAN',54324,13141,1,0,0],
+  // DAY 10 — SF
+  [10,'MARCO','INFERNO',71970,13061,1,0,0],[10,'ALARA','INFERNO',71970,14933,1,0,0],
+  [10,'ASPIRANT','INFERNO',71948,15300,1,0,0],[10,'DOREMON','INFERNO',65227,13926,1,0,0],
+  [10,'EMPEROR','INFERNO',71970,14802,1,0,0],[10,'PHANTOM','INFERNO',71936,14280,1,0,0],
+  [10,'SHREE','ECLIPSE',58629,17879,1,0,0],[10,'ANU','ECLIPSE',69427,17999,1,0,0],
+  [10,'SAKURA','ECLIPSE',71934,17165,1,0,0],[10,'IGRIS','ECLIPSE',43897,8500,1,0,0],
+  [10,'COOKIE','ECLIPSE',65366,17880,1,0,0],[10,'VEGA','ECLIPSE',71659,16207,1,0,0],
+  [10,'GARIMA','AURORA',71617,11617,1,0,0],[10,'HIMA','AURORA',69158,9883,1,0,0],
+  [10,'RIYANSH','AURORA',69609,13924,1,0,0],[10,'ASH','AURORA',54920,9910,1,0,0],
+  [10,'BATWOMAN','AURORA',68800,13765,1,0,0],[10,'MANAN','AURORA',69051,17365,1,0,0],
+  [10,'CIPHER X','NOVA',31612,18543,1,1,0],[10,'QUEEN','NOVA',64897,9417,1,0,0],
+  [10,'DEVIL','NOVA',32820,48237,1,1,0],[10,'ROCKY','NOVA',70993,8604,1,0,0],
+  [10,'STAR ALPHA','NOVA',68242,8484,1,0,0],[10,'SANAM','NOVA',47245,5995,1,0,0],
+  [10,'LILESH','ZENITH',58428,16430,0,0,0],[10,'NAVYA','ZENITH',70200,9976,1,0,0],
+  [10,'KOI TO HU','ZENITH',71996,11648,0,0,0],[10,'SALU BHAI','ZENITH',59933,17976,0,0,0],
+  [10,'ETERNITY','ZENITH',27972,14673,0,0,0],[10,'TULIP','ZENITH',52000,3906,1,0,0],
+  [10,'AAKARSH','BLAZE',61018,12835,0,0,0],[10,'ROHII','BLAZE',59842,8147,0,0,0],
+  [10,'SHAROLET','BLAZE',47454,7827,0,0,0],[10,'YASH','BLAZE',63922,11700,0,0,0],
+  [10,'DUSKY','BLAZE',53365,9523,1,0,0],[10,'ANGEL','BLAZE',0,0,0,0,0],
+  [10,'MR FERIT','VORTEX',71999,14131,1,0,0],[10,'FELSPR','VORTEX',71483,16898,1,0,0],
+  [10,'SEYRAN','VORTEX',40272,14540,1,0,0],[10,'KEDAR','VORTEX',60282,17682,1,0,0],
+  [10,'LAVENDER','VORTEX',27961,23040,1,1,0],[10,'SOUL','VORTEX',69232,16535,1,0,0],
+  [10,'AYUSHH','TITAN',71998,12822,1,0,0],[10,'PURVA','TITAN',71995,8847,1,0,0],
+  [10,'ELVYA','TITAN',71974,9510,1,0,0],[10,'KHUSHI','TITAN',71993,10372,1,0,0],
+  [10,'MURARI','TITAN',71044,14112,1,0,0],[10,'ANCHAL','TITAN',53128,11860,1,0,0],
+  // DAY 11 — FINAL
+  [11,'CIPHER X','NOVA',35925,24200,1,1,0],[11,'QUEEN','NOVA',35968,19192,1,1,0],
+  [11,'DEVIL','NOVA',35997,36585,1,1,0],[11,'ROCKY','NOVA',71992,10714,1,0,0],
+  [11,'STAR ALPHA','NOVA',68396,8651,1,0,0],[11,'SANAM','NOVA',50816,10409,1,0,0],
+  [11,'MR FERIT','VORTEX',58318,14405,1,0,0],[11,'FELSPR','VORTEX',71999,13524,1,0,0],
+  [11,'SEYRAN','VORTEX',55285,17999,1,0,0],[11,'KEDAR','VORTEX',55082,9951,1,0,0],
+  [11,'LAVENDER','VORTEX',50230,13483,1,0,0],[11,'SOUL','VORTEX',59074,17999,1,0,0],
+  [11,'AYUSHH','TITAN',61200,17999,1,0,0],[11,'PURVA','TITAN',71999,13866,1,0,0],
+  [11,'ELVYA','TITAN',59749,13949,1,0,0],[11,'KHUSHI','TITAN',27495,8770,1,0,0],
+  [11,'ANCHAL','TITAN',50690,17649,1,0,0],[11,'MURARI','TITAN',57600,17999,1,0,0],
+  [11,'AAKARSH','BLAZE',64078,14228,0,0,0],[11,'ROHII','BLAZE',62454,7488,0,0,0],
+  [11,'SHAROLET','BLAZE',58047,8904,0,0,0],[11,'YASH','BLAZE',45087,9870,0,0,0],
+  [11,'DUSKY','BLAZE',58704,12805,0,0,0],[11,'ANGEL','BLAZE',0,0,0,0,0],
+  [11,'GARIMA','AURORA',71945,11676,1,0,0],[11,'RIYANSH','AURORA',71715,8522,1,0,0],
+  [11,'BATWOMAN','AURORA',64800,11646,1,1,0],[11,'HIMA','AURORA',71548,16665,1,0,0],
+  [11,'ASH','AURORA',71540,7514,1,0,0],[11,'MANAN','AURORA',65271,16671,1,0,0],
+  [11,'MARCO','INFERNO',71970,13488,1,0,0],[11,'ALARA','INFERNO',71970,13018,1,0,0],
+  [11,'ASPIRANT','INFERNO',71775,14400,1,0,0],[11,'DOREMON','INFERNO',58046,13467,1,0,0],
+  [11,'EMPEROR','INFERNO',71970,14159,1,0,0],[11,'PHANTOM','INFERNO',71913,10896,1,0,0],
+  [11,'SHREE','ECLIPSE',56735,17879,1,0,0],[11,'ANU','ECLIPSE',69427,17999,1,0,0],
+  [11,'SAKURA','ECLIPSE',71934,17999,1,0,0],[11,'IGRIS','ECLIPSE',63916,17999,1,0,0],
+  [11,'COOKIE','ECLIPSE',70946,17999,1,0,0],[11,'VEGA','ECLIPSE',71659,17999,1,0,0],
+  [11,'LILESH','ZENITH',58051,11110,0,0,0],[11,'NAVYA','ZENITH',71999,14564,0,0,0],
+  [11,'KOI TO HU','ZENITH',0,0,0,0,0],[11,'SALU BHAI','ZENITH',54734,12260,0,0,0],
+  [11,'ETERNITY','ZENITH',47046,13728,0,0,0],[11,'TULIP','ZENITH',0,0,0,0,0],
+];
+
+// ════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════
+function hms(s){
+  if(!s||s===0)return '—';
+  const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sc).padStart(2,'0')}`;
+}
+function computeMemberTotals(){
+  const totals={};
+  for(const [d,m,t,adj] of SUBS){
+    const k=`${m}|${t}`;
+    if(!totals[k])totals[k]={member:m,team:t,total:0,days:0};
+    totals[k].total+=adj;
+    if(adj>0)totals[k].days++;
+  }
+  return Object.values(totals);
+}
+function memberSubsByDay(memberName){
+  return SUBS.filter(s=>s[1]===memberName).sort((a,b)=>a[0]-b[0]);
+}
+function teamRecord(teamName){
+  let w=0,d=0,l=0;
+  for(const m of MATCHES){
+    const [,ph,,t1,t2,winner]=m;
+    if(ph!=='league')continue;
+    if(t1===teamName||t2===teamName){
+      if(winner===teamName)w++;
+      else if(winner==='DRAW')d++;
+      else l++;
+    }
+  }
+  return {w,d,l,pts:w*3+d};
+}
+function tE(name){
+  const t=TEAMS.find(x=>x.name===name);
+  return t?t.emoji:'';
+}
+function tColor(name){
+  const t=TEAMS.find(x=>x.name===name);
+  return t?t.color:'#aaa';
+}
+const PHASE_ORDER=['league','quarter','secondchance','semi','final'];
+const DAY_PHASE_MAP={
+  1:'league',2:'league',3:'league',4:'league',5:'league',6:'league',7:'league',
+  8:'quarter',9:'secondchance',10:'semi',11:'final'
+};
+
+// ════════════════════════════════════════════
+// RENDER TEAMS TAB
+// ════════════════════════════════════════════
+function renderTeams(){
+  const grid=document.getElementById('teams-grid');
+  grid.innerHTML='';
+  TEAMS.forEach(t=>{
+    const rec=teamRecord(t.name);
+    const card=document.createElement('div');
+    card.className='team-card'+(t.champion?' champion-card':'');
+    card.style.cssText=`background:linear-gradient(145deg,rgba(${hexToRgb(t.color)},0.06),var(--bg2));border-color:rgba(${hexToRgb(t.color)},0.2)`;
+    card.innerHTML=`
+      <span class="team-emoji">${t.emoji}</span>
+      <div class="team-name" style="color:${t.color}">${t.name}</div>
+      <div class="team-bar" style="background:${t.grad}"></div>
+      <div class="team-captain">Captain</div>
+      <div class="team-cap-name">${t.captain}</div>
+      <div class="team-record">
+        <span class="rec-pill rec-w">W ${rec.w}</span>
+        <span class="rec-pill rec-d">D ${rec.d}</span>
+        <span class="rec-pill rec-l">L ${rec.l}</span>
+        <span class="rec-pill rec-w" style="background:rgba(255,215,0,0.1);color:var(--gold);border-color:rgba(255,215,0,0.2)">${rec.pts}pts</span>
+      </div>
+      <div class="member-list-mini">
+        <div class="mini-member"><span class="cap-star">★</span>${t.captain}</div>
+        ${t.members.map(m=>`<div class="mini-member">· ${m}</div>`).join('')}
+      </div>
+    `;
+    card.addEventListener('click',()=>openTeamDetail(t.name));
+    grid.appendChild(card);
+  });
+}
+
+function hexToRgb(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+function openTeamDetail(teamName){
+  const team=TEAMS.find(t=>t.name===teamName);
+  const panel=document.getElementById('team-detail-panel');
+
+  // total team study hours
+  const memberTotals=computeMemberTotals().filter(x=>x.team===teamName);
+  const teamTotal=memberTotals.reduce((s,x)=>s+x.total,0);
+  const rec=teamRecord(teamName);
+
+  // all members in order: captain first, then members
+  const allMembers=[team.captain,...team.members];
+
+  // special members note
+  let noteHtml='';
+  if(teamName==='TITAN')noteHtml=`<div style="font-size:10px;color:var(--muted2);margin-top:4px;font-family:'Space Mono',monospace">* TONMOY &amp; PIYUSH (Days 1–3), KHUSHI replaced TONMOY (Day 4), ANCHAL replaced PIYUSH (Day 5)</div>`;
+  if(teamName==='BLAZE')noteHtml=`<div style="font-size:10px;color:var(--muted2);margin-top:4px;font-family:'Space Mono',monospace">* YASH replaced original member BACHIRA</div>`;
+  if(teamName==='ECLIPSE')noteHtml=`<div style="font-size:10px;color:var(--muted2);margin-top:4px;font-family:'Space Mono',monospace">* IGRIS replaced original member ARPIT</div>`;
+  if(teamName==='AURORA')noteHtml=`<div style="font-size:10px;color:var(--muted2);margin-top:4px;font-family:'Space Mono',monospace">* HIMA replaced PRATYUSHH · RIYANSH replaced THERI · MANAN replaced NAVDEEP</div>`;
+
+  // Member cards html
+  let memberCardsHtml='';
+  // Include extra members from subs (like TONMOY, PIYUSH for TITAN)
+  const subMembers=[...new Set(SUBS.filter(s=>s[2]===teamName).map(s=>s[1]))];
+  const extraMembers=subMembers.filter(m=>!allMembers.includes(m));
+  const displayMembers=[...allMembers,...extraMembers];
+
+  for(const mName of displayMembers){
+    const mSubs=memberSubsByDay(mName).filter(s=>s[2]===teamName);
+    if(!mSubs.length)continue;
+    const mTotal=mSubs.reduce((s,x)=>s+x[3],0);
+    const isCap=mName===team.captain;
+    const initials=mName.split(' ').map(w=>w[0]).join('').slice(0,2);
+
+    let rowsHtml='';
+    for(const [day,,,adj,foc,snap,fe,te] of mSubs){
+      const phase=DAY_PHASE_MAP[day]||'league';
+      const phaseShort={league:'',quarter:'⚔️',secondchance:'🔁',semi:'🔥',final:'👑'}[phase];
+      const warn=fe?'<span class="badge-fe">½</span>':te?'<span class="badge-te">NULL</span>':'';
+      rowsHtml+=`<tr>
+        <td>D${day} <span class="day-phase-tag">${phaseShort}</span></td>
+        <td class="${te?'null':fe?'warn':''}">${hms(adj)}${warn}</td>
+        <td>${hms(foc)}</td>
+        <td class="${snap?'snap-y':'snap-n'}">${snap?'✓':'✗'}</td>
+      </tr>`;
+    }
+
+    memberCardsHtml+=`
+      <div class="member-card" id="mc-${teamName}-${mName.replace(/\s/g,'_')}">
+        <div class="mc-header" onclick="toggleMember('${teamName}','${mName.replace(/\s/g,'_')}')">
+          <div class="mc-avatar" style="background:linear-gradient(135deg,rgba(${hexToRgb(team.color)},0.2),rgba(${hexToRgb(team.color)},0.05));border:1px solid rgba(${hexToRgb(team.color)},0.2);color:${team.color}">${initials}</div>
+          <div class="mc-name">${mName}${isCap?' <span style="font-size:9px;color:var(--gold)">★ CAP</span>':''}</div>
+          <div class="mc-total">${hms(mTotal)}</div>
+          <span class="mc-arrow">▼</span>
+        </div>
+        <div class="mc-body">
+          <div class="mc-day-grid">
+            <table class="mc-day-table">
+              <thead><tr><th>Day</th><th>Study Time</th><th>Focus</th><th>Snap</th></tr></thead>
+              <tbody>${rowsHtml}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  panel.innerHTML=`
+    <button class="back-btn" onclick="closeTeamDetail()">◀ Back to Teams</button>
+    <div class="detail-header" style="border-color:rgba(${hexToRgb(team.color)},0.25)">
+      <div class="detail-title">${team.emoji} ${team.name} <span style="font-size:14px;color:${team.color};font-family:'Rajdhani',sans-serif;letter-spacing:2px">${team.result}</span></div>
+      <div class="detail-stats">
+        <div class="stat-chip"><span class="val">${hms(teamTotal)}</span><span class="lbl">Total Hours</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--green)">${rec.w}</span><span class="lbl">Wins</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--cyan)">${rec.d}</span><span class="lbl">Draws</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--pink)">${rec.l}</span><span class="lbl">Losses</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--gold)">${rec.pts}</span><span class="lbl">League Pts</span></div>
+      </div>
+      ${noteHtml}
+    </div>
+    <div class="section-label">👤 Member Stats — Click to expand per-day details</div>
+    <div class="member-cards">${memberCardsHtml}</div>
+  `;
+  panel.style.display='block';
+  document.getElementById('teams-grid').style.display='none';
+  panel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function closeTeamDetail(){
+  document.getElementById('team-detail-panel').style.display='none';
+  document.getElementById('team-detail-panel').innerHTML='';
+  document.getElementById('teams-grid').style.display='grid';
+}
+
+function toggleMember(team,nameKey){
+  const card=document.getElementById(`mc-${team}-${nameKey}`);
+  card.classList.toggle('open');
+}
+
+// ════════════════════════════════════════════
+// RENDER RESULTS TAB
+// ════════════════════════════════════════════
+function renderResults(phase){
+  const el=document.getElementById('results-content');
+  const days=MATCHES.filter(m=>m[1]===phase).map(m=>m[0]);
+  const uniqDays=[...new Set(days)].sort((a,b)=>a-b);
+
+  let html=`<div class="phase-label">${PHASE_LABELS[phase]||phase}</div>`;
+
+  for(const day of uniqDays){
+    const dayMatches=MATCHES.filter(m=>m[0]===day&&m[1]===phase);
+    html+=`<div class="day-block">
+      <div class="day-hdr">
+        <span class="day-title">${DAY_LABELS[day]||'Day '+day}</span>
+        <span class="day-date">${DAY_DATES[day]}, 2026</span>
+      </div>`;
+
+    for(const [,ph,matchNum,t1,t2,winner,t1p,t2p] of dayMatches){
+      const winnerClass = winner===t1?'w1':winner===t2?'w2':'draw';
+      const winnerLabel = winner===t1?`${tE(t1)} ${t1}`:winner===t2?`${tE(t2)} ${t2}`:'DRAW';
+      html+=`<div class="match-row">
+        <span class="m-num">M${matchNum}</span>
+        <span class="m-team left" style="color:${winner===t1?'var(--green)':'#bbb'}">${tE(t1)} ${t1}</span>
+        <span class="m-vs">VS</span>
+        <span class="m-team right" style="color:${winner===t2?'var(--green)':'#bbb'}">${t2} ${tE(t2)}</span>
+        <span class="m-winner ${winnerClass}">${winner===t1?'← WIN':winner===t2?'WIN →':'DRAW'}</span>
+      </div>`;
+    }
+    html+='</div>';
+  }
+
+  el.innerHTML=html;
+}
+
+// ════════════════════════════════════════════
+// RENDER LEADERBOARD TAB
+// ════════════════════════════════════════════
+function renderLeaderboard(mode){
+  const el=document.getElementById('leaderboard-content');
+
+  if(mode==='individual'){
+    const totals=computeMemberTotals().sort((a,b)=>b.total-a.total);
+    const awards={
+      'AYUSHH':'👑 Best Captain',
+      'NAVYA':'⚡ Best Performer',
+      'HIMA':'🧠 Most Focused',
+      'FELSPR':'🌱 Best Underdog',
+      'ROCKY':'🛡️ Most Loyal'
+    };
+    let rows='';
+    totals.forEach((m,i)=>{
+      const rank=i+1;
+      const medal=rank===1?'r1':rank===2?'r2':rank===3?'r3':'rn';
+      const aw=awards[m.member]||'';
+      const teamColor=tColor(m.team);
+      rows+=`<tr>
+        <td><span class="rank-badge ${medal}">${rank<=3?['🥇','🥈','🥉'][rank-1]:rank}</span></td>
+        <td>${m.member}<span class="team-tag">${tE(m.team)} ${m.team}</span>${aw?`<br><span class="award-tag">${aw}</span>`:''}</td>
+        <td class="hours-val">${hms(m.total)}</td>
+        <td style="color:var(--muted2)">${m.days}</td>
+      </tr>`;
+    });
+    el.innerHTML=`
+      <div class="lb-table-wrap">
+        <table class="lb">
+          <thead><tr><th>#</th><th>Member</th><th>Total Hours</th><th>Days</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
+  } else {
+    // Team standings (league only)
+    const teamData=TEAMS.map(t=>{
+      const rec=teamRecord(t.name);
+      const mTotals=computeMemberTotals().filter(x=>x.team===t.name);
+      const totalSec=mTotals.reduce((s,x)=>s+x.total,0);
+      return {...t,...rec,totalSec};
+    }).sort((a,b)=>b.pts-a.pts||b.totalSec-a.totalSec);
+
+    // Final tournament positions
+    const finalPos={
+      'AURORA':'🏆 Champion',
+      'INFERNO':'🥈 Runner-Up',
+      'TITAN':'🥉 3rd Place',
+      'VORTEX':'4th Place',
+      'NOVA':'Elim. Day 9',
+      'ECLIPSE':'Elim. Day 9',
+      'ZENITH':'Elim. Day 9',
+      'BLAZE':'Elim. Day 9'
+    };
+
+    let rows='';
+    teamData.forEach((t,i)=>{
+      const rank=i+1;
+      const medal=rank===1?'r1':rank===2?'r2':rank===3?'r3':'rn';
+      rows+=`<tr>
+        <td><span class="rank-badge ${medal}">${rank<=3?['🥇','🥈','🥉'][rank-1]:rank}</span></td>
+        <td>${t.emoji} ${t.name}<span class="final-pos">${finalPos[t.name]||''}</span></td>
+        <td style="color:var(--gold);font-weight:900">${t.pts}</td>
+        <td style="color:var(--green)">${t.w}</td>
+        <td style="color:var(--cyan)">${t.d}</td>
+        <td style="color:var(--pink)">${t.l}</td>
+        <td class="hours-val" style="font-size:10px">${hms(t.totalSec)}</td>
+      </tr>`;
+    });
+    el.innerHTML=`
+      <div class="standings-wrap">
+        <table class="st">
+          <thead><tr><th>#</th><th>Team</th><th>Pts</th><th>W</th><th>D</th><th>L</th><th>Total Hrs</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);text-align:center">League stage (Days 1–7) · Win=3pts · Draw=1pt</div>
+    `;
+  }
+}
+
+// ════════════════════════════════════════════
+// RENDER AWARDS TAB
+// ════════════════════════════════════════════
+function renderAwards(){
+  const el=document.getElementById('awards-content');
+
+  const auroraMembers=[
+    {name:'GARIMA',note:'Captain',hours:'218:09:44'},
+    {name:'BATWOMAN',note:'',hours:'202:15:00'},
+    {name:'ASH',note:'',hours:'178:02:22'},
+    {name:'HIMA',note:'Joined mid-challenge',hours:'215:20:48'},
+    {name:'Riyansh',note:'Joined mid-challenge',hours:'207:52:58'},
+    {name:'Manan',note:'Joined mid-challenge',hours:'151:45:44'},
+  ];
+
+  const champMembersHtml=auroraMembers.map(m=>`
+    <div class="champion-member-row">
+      <span class="champ-name">${m.name} ${m.note?`<span class="champ-note">${m.note}</span>`:''}</span>
+      <span class="champ-hours">${m.hours}</span>
+    </div>
+  `).join('');
+
+  const ytAwards=[
+    {icon:'👑',cat:'Best Captain Award',name:'Ayushh',team:'TITAN',hours:'209:59:43',color:'#f4a460',
+     desc:'Led with strategy, rotated smartly, kept team morale alive from Day 1 to the Semis. The best auction value of any captain.'},
+    {icon:'⚡',cat:'Best Performer Award',name:'Navya',team:'ZENITH',hours:'219:13:24',color:'#00D4FF',
+     desc:'Highest total output across all 48 members. Not one off day in 11 days. The name everyone kept seeing at the top.'},
+    {icon:'🧠',cat:'Most Focused Member Award',name:'Himanshi (HIMA)',team:'AURORA 🏆',hours:'215:20:48',color:'#00FF88',
+     desc:'Best focus-to-time ratio across all 48. Joined mid-challenge as a replacement and still won the Most Focused award.'},
+    {icon:'🌱',cat:'Best Underdog Award',name:'Felspr Smash',team:'VORTEX',hours:'212:48:10',color:'#9D4EDD',
+     desc:'Auctioned as a Slot 3–4 pick, finished top 5 overall. The biggest gap between expectation and delivery.'},
+    {icon:'🛡️',cat:'Most Loyal Warrior Award',name:'Rocky',team:'NOVA',hours:'216:10:17',color:'#FFD700',
+     desc:'11 days. Zero absences. Zero skips. The heartbeat nobody saw but everybody needed.'},
+  ];
+
+  const ytHtml=ytAwards.map(a=>`
+    <div class="award-winner-card">
+      <div class="glow" style="background:radial-gradient(circle at 0 0,rgba(${hexRgb(a.color)},0.05),transparent 60%)"></div>
+      <div class="award-icon">${a.icon}</div>
+      <div class="award-body">
+        <div class="award-category">${a.cat}</div>
+        <div class="award-winner-name" style="color:${a.color}">${a.name}</div>
+        <div class="award-meta">
+          <span class="award-hours">${a.hours}</span>
+          <span class="award-team-pill" style="background:rgba(${hexRgb(a.color)},0.1);color:${a.color};border:1px solid rgba(${hexRgb(a.color)},0.2)">${tE(a.team.split(' ')[0])} ${a.team}</span>
+        </div>
+        <div class="award-desc">${a.desc}</div>
+        <span class="award-prize">🎬 YouTube Premium 1 Month — by 🌟 CIPHER X</span>
+      </div>
+    </div>
+  `).join('');
+
+  el.innerHTML=`
+    <!-- STUDICON -->
+    <div class="award-hero">
+      <span class="award-hero-emoji">🎓</span>
+      <div class="award-hero-title" style="color:var(--green)">Studicon Champion Reward</div>
+      <div class="award-hero-sub">Exclusive Studicon reward for all 6 members<br>of the Champion Team — 🌈 AURORA</div>
+      <div class="sponsor-tag">Sponsored by ⚡ LILESH (Studicon)</div>
+    </div>
+
+    <div class="champion-team-card">
+      <div class="champion-team-title">🌈 TEAM AURORA — CHAMPIONS 2026</div>
+      <div class="champion-members">${champMembersHtml}</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- YOUTUBE PREMIUM -->
+    <div class="award-hero" style="background:linear-gradient(135deg,rgba(255,45,85,0.05),rgba(255,215,0,0.05));border-color:rgba(255,215,0,0.2)">
+      <span class="award-hero-emoji">🎬</span>
+      <div class="award-hero-title" style="color:var(--gold)">Individual Star Awards</div>
+      <div class="award-hero-sub">YouTube Premium Standard (1 Month) for 5 winners<br>Open to all 48 participants — earned through effort</div>
+      <div class="sponsor-tag" style="color:var(--gold);background:rgba(255,215,0,0.06);border-color:rgba(255,215,0,0.2)">Sponsored by 🌟 CIPHER X</div>
+    </div>
+
+    ${ytHtml}
+
+    <div class="divider"></div>
+
+    <!-- CREDITS -->
+    <div class="credits-section">
+      <div class="credits-title">Organised by</div>
+      <div class="credits-duo">
+        <div class="credit-card">
+          <span class="credit-emoji">🌟</span>
+          <div class="credit-name" style="color:var(--gold)">CIPHER X</div>
+          <div class="credit-role">Organiser · Owner<br>Individual Star Awards Sponsor<br>Bot Developer</div>
+          <div class="credit-prize">5 × YouTube Premium</div>
+        </div>
+        <div class="credit-card">
+          <span class="credit-emoji">⚡</span>
+          <div class="credit-name" style="color:var(--cyan)">LILESH</div>
+          <div class="credit-role">Co-Organiser<br>Studicon Rewards Sponsor<br>Team ZENITH Captain</div>
+          <div class="credit-prize">6 × Studicon Reward</div>
+        </div>
+      </div>
+      <div class="credits-dev">
+        Website &amp; Bot built by <a href="https://t.me/pyrexus" target="_blank">@pyrexus</a><br>
+        Crown Reapers · Cosmic Clash 2026 · March 5–15, 2026
+      </div>
+    </div>
+  `;
+}
+
+function hexRgb(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+// ════════════════════════════════════════════
+// RENDER RULES TAB
+// ════════════════════════════════════════════
+const RULES=[
+  ['⏱️ Focus Duration Rule','Max continuous focus session is <hl>5 hours</hl>. If exceeded, only <hl>50%</hl> of total session time is counted.'],
+  ['🌙 Day-Off Policy','Only <hl>1 day off</hl> allowed during the entire challenge. The participant receives their previous month\'s average hours for that day. Extra days off result in <hl>0 hours</hl>.'],
+  ['⚖️ Result Margin Rule','If two teams\' total time difference is within <hl>±5 minutes</hl>, the match is declared a <hl>Draw</hl>.'],
+  ['🔧 Technical Glitches','Only <hl>clear verifiable proof</hl> is accepted for missing records. All organiser decisions are <hl>final</hl>.'],
+  ['🕐 Timer Regulation','All study sessions must fall within a <hl>24-hour period</hl>. Sessions crossing the day boundary are invalid.'],
+  ['📋 Daily Submission','Captain must submit the previous day\'s hours <hl>before 12:00 PM IST</hl>. Late submission may result in <hl>disqualification</hl> of that day\'s score.'],
+  ['📸 Snap Bonus','<hl>All 6 members</hl> must send a study snap to earn <hl>+1 bonus point</hl>. Even 1 missing snap = 0 bonus.'],
+  ['📊 Point Calculation','Max 120 hrs/day per team (20hrs × 6). <hl>Win = 3pts · Draw = 1pt each · Loss = 0pts</hl>. Snap bonus adds +1 if all 6 snapped.'],
+  ['🚪 Duration & Exits','Challenge runs <hl>March 5–15</hl>. No exits allowed. Emergency exit requires a <hl>replacement member</hl>.'],
+  ['⚠️ Score Nullification','If any single member\'s time exceeds <hl>19:59:59</hl>, the <hl>entire team\'s daily score is nullified to 0</hl>.'],
+];
+
+function renderRules(){
+  const el=document.getElementById('rules-content');
+  el.innerHTML=`<div class="rules-list">${RULES.map((r,i)=>`
+    <div class="rule-card" onclick="toggleRule(this)">
+      <div class="rule-hdr">
+        <div class="rule-num">${i+1}</div>
+        <div class="rule-title-txt">${r[0]}</div>
+        <span class="rule-arrow">▼</span>
+      </div>
+      <div class="rule-body">${r[1].replace(/<hl>/g,'<span class="hl">').replace(/<\/hl>/g,'</span>')}</div>
+    </div>`).join('')}</div>`;
+}
+
+function toggleRule(card){card.classList.toggle('open')}
+
+// ════════════════════════════════════════════
+// STATS MODULE
+// ════════════════════════════════════════════
+let statsSubTab='member';
+let statsMember=null;
+let statsTeam=null;
+
+const PHASE_CLR={league:'#9D4EDD',quarter:'#FF2D55',secondchance:'#00D4FF',semi:'#FFD700',final:'#00FF88'};
+const PHASE_NM={league:'League',quarter:'Quarter-Final',secondchance:'2nd Chance',semi:'Semi-Final',final:'Grand Final'};
+
+function renderStats(sub){
+  statsSubTab=sub;
+  const el=document.getElementById('stats-content');
+  if(!el)return;
+  el.innerHTML='';
+  if(sub==='member')statsRenderMember(el);
+  else if(sub==='all')statsRenderAll(el);
+  else if(sub==='teams')statsRenderTeams(el);
+  else if(sub==='overview')statsRenderOverview(el);
+}
+
+/* ─── MEMBER ─── */
+function statsRenderMember(el){
+  const allNames=[...new Set(SUBS.map(s=>s[1]))].sort();
+  const picker=`<div class="member-picker-wrap">
+    <input class="member-picker-input" id="st-inp" type="text" placeholder="🔍 Search member..." autocomplete="off"
+      value="${statsMember||''}" oninput="stMemberFilter(this.value)" onfocus="stMemberOpen()"/>
+    <div class="member-picker-dd" id="st-dd">
+      ${allNames.map(n=>{
+        const t=SUBS.find(s=>s[1]===n)?.[2]||'';
+        const c=tColor(t);
+        return `<div class="mp-opt" onclick="stMemberPick('${n.replace(/'/g,"\\'")}')">
+          <span>${n}</span><span class="mp-meta" style="color:${c}">${tE(t)} ${t}</span>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>`;
+
+  if(!statsMember){
+    el.innerHTML=picker+`<div class="stats-empty"><span class="big-e">📊</span><span class="msg">Pick a member above<br>to view their full analytics</span></div>`;
+    stPickerInit();return;
+  }
+  const subs=SUBS.filter(s=>s[1]===statsMember);
+  if(!subs.length){el.innerHTML=picker+`<div class="stats-empty"><span class="msg">No data found</span></div>`;stPickerInit();return;}
+
+  const team=subs[0][2];
+  const tObj=TEAMS.find(t=>t.name===team);
+  const color=tObj?.color||'#9D4EDD';
+  const rgb=hexToRgb(color);
+  const isCap=tObj?.captain===statsMember;
+
+  const totalS=subs.reduce((s,x)=>s+x[3],0);
+  const focusS=subs.reduce((s,x)=>s+x[4],0);
+  const actSubs=subs.filter(s=>s[3]>0);
+  const snapN=actSubs.filter(s=>s[5]).length;
+  const avgDay=actSubs.length?Math.round(totalS/actSubs.length):0;
+  const focRate=totalS>0?focusS/totalS:0;
+  const snapRate=actSubs.length?snapN/actSubs.length:0;
+
+  const rank=computeMemberTotals().sort((a,b)=>b.total-a.total).findIndex(m=>m.member===statsMember)+1;
+
+  const CIRC=2*Math.PI*35;
+  const gauges=[
+    {lbl:'TOTAL HOURS',val:totalS>=3600?`${Math.floor(totalS/3600)}h${String(Math.floor((totalS%3600)/60)).padStart(2,'0')}m`:'0h',pct:Math.min(totalS/(11*20*3600),1),col:'#00FF88'},
+    {lbl:'AVG / DAY',  val:avgDay>=3600?`${Math.floor(avgDay/3600)}h${String(Math.floor((avgDay%3600)/60)).padStart(2,'0')}m`:'0h',pct:Math.min(avgDay/(20*3600),1),col:'#00D4FF'},
+    {lbl:'FOCUS RATE', val:`${(focRate*100).toFixed(0)}%`,pct:focRate,col:'#9D4EDD'},
+    {lbl:'SNAP RATE',  val:`${(snapRate*100).toFixed(0)}%`,pct:snapRate,col:'#FFD700'},
+  ];
+  const gaugesHtml=gauges.map((g,i)=>`
+    <div class="gauge-card">
+      <svg class="gauge-svg" viewBox="0 0 100 100">
+        <circle class="g-track" cx="50" cy="50" r="35"/>
+        <circle class="g-fill" id="sg${i}" cx="50" cy="50" r="35" stroke="${g.col}"
+          stroke-dasharray="${CIRC.toFixed(1)}" stroke-dashoffset="${CIRC.toFixed(1)}"
+          data-off="${(CIRC*(1-g.pct)).toFixed(2)}"/>
+        <text x="50" y="47" text-anchor="middle" class="g-val" fill="${g.col}" font-family="'Bebas Neue',sans-serif" font-size="13">${g.val}</text>
+        <text x="50" y="61" text-anchor="middle" class="g-pct" font-family="'Space Mono',monospace" font-size="8" fill="#4a4a70">${(g.pct*100).toFixed(0)}%</text>
+      </svg>
+      <span class="gauge-lbl">${g.lbl}</span>
+    </div>`).join('');
+
+  const dayMap={};
+  for(const s of subs) dayMap[s[0]]=s;
+
+  const barsHtml=[1,2,3,4,5,6,7,8,9,10,11].map(d=>{
+    const s=dayMap[d]; const sec=s?s[3]:0;
+    const pct=(Math.min(sec/(20*3600),1)*100).toFixed(1);
+    const col=PHASE_CLR[DAY_PHASE_MAP[d]]||color;
+    const tip=s?`${hms(sec)}${s[6]?' (½ adj)':''}${!s[5]?' ✗snap':''}`:'-';
+    return `<div class="bar-col-wrap">
+      <div class="bar-track"><div class="bar-fill" style="background:linear-gradient(to top,${col},rgba(${hexToRgb(col)},.6))" data-h="${pct}"><div class="bar-tip">D${d}: ${tip}</div></div></div>
+      <div class="bar-day-label">D${d}</div>
+    </div>`;
+  }).join('');
+
+  const phases=['league','quarter','secondchance','semi','final'];
+  const phasePerfHtml=phases.map(ph=>{
+    const pDays=Object.entries(DAY_PHASE_MAP).filter(([,v])=>v===ph).map(([k])=>parseInt(k));
+    const pSubs=subs.filter(s=>pDays.includes(s[0]));
+    if(!pSubs.length)return '';
+    const tot=pSubs.reduce((s,x)=>s+x[3],0);
+    const avg=Math.round(tot/pSubs.length);
+    return `<div class="pp-card">
+      <div class="pp-phase" style="color:${PHASE_CLR[ph]}">${PHASE_NM[ph]}</div>
+      <div class="pp-hrs" style="color:${PHASE_CLR[ph]}">${hms(tot)}</div>
+      <div class="pp-sub">${pSubs.length} day${pSubs.length>1?'s':''} · avg ${hms(avg)}</div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML=picker+`
+    <div class="detail-header" style="border-color:rgba(${rgb},.25);margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,rgba(${rgb},.2),rgba(${rgb},.04));border:1px solid rgba(${rgb},.25);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:${color}">${statsMember.slice(0,2)}</div>
+        <div style="flex:1">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:${color}">${statsMember}${isCap?' <span style="font-size:11px;color:var(--gold)">★</span>':''}</div>
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--muted2)">${tE(team)} ${team} &nbsp;·&nbsp; Rank <b style="color:${color}">#${rank}</b>/48</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--cyan)">${hms(totalS)}</div>
+          <div style="font-family:'Space Mono',monospace;font-size:8px;color:var(--muted)">${actSubs.length} DAYS</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-label">◎ Circular Stats</div>
+    <div class="gauges-row">${gaugesHtml}</div>
+    <div class="chart-box">
+      <div class="chart-box-title">📈 11-DAY STUDY JOURNEY</div>
+      <svg id="lc-m" viewBox="0 0 380 120" style="width:100%;display:block" preserveAspectRatio="none"></svg>
+      <div class="phase-legend">${Object.entries(PHASE_CLR).map(([k,v])=>`<span class="pl-item"><span class="pl-dot" style="background:${v}"></span>${PHASE_NM[k]}</span>`).join('')}</div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">📊 DAILY BREAKDOWN</div>
+      <div class="bar-stage">${barsHtml}</div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">🗓️ PHASE PERFORMANCE</div>
+      <div class="phase-perf-grid">${phasePerfHtml}</div>
+    </div>`;
+
+  stPickerInit();
+  requestAnimationFrame(()=>setTimeout(()=>{
+    gauges.forEach((_,i)=>{const e=document.getElementById(`sg${i}`);if(e)e.style.strokeDashoffset=e.dataset.off;});
+    el.querySelectorAll('.bar-fill[data-h]').forEach(b=>{b.style.height=b.dataset.h+'%';});
+    stDrawLine('lc-m',dayMap,color);
+  },80));
+}
+
+function stDrawLine(id,dayMap,color){
+  const svg=document.getElementById(id);if(!svg)return;
+  const W=380,H=120,PL=28,PT=8,PB=22,PR=8,cW=W-PL-PR,cH=H-PT-PB,maxS=20*3600;
+  const pts=[1,2,3,4,5,6,7,8,9,10,11].map(d=>{
+    const sec=(dayMap[d]?dayMap[d][3]:0);
+    return {d,sec,x:PL+((d-1)/10)*cW,y:PT+cH-(sec/maxS)*cH};
+  });
+  let g='';
+  [5,10,15,20].forEach(h=>{const y=PT+cH-(h/20)*cH;g+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/><text x="${PL-3}" y="${y+3.5}" text-anchor="end" fill="#444465" font-size="7" font-family="Space Mono,monospace">${h}h</text>`;});
+  let dl=pts.map(p=>`<text x="${p.x}" y="${H-4}" text-anchor="middle" fill="#444465" font-size="7" font-family="Space Mono,monospace">D${p.d}</text>`).join('');
+  let path=`M${pts[0].x},${pts[0].y}`;
+  for(let i=1;i<pts.length;i++){const dx=(pts[i].x-pts[i-1].x)*.4;path+=` C${pts[i-1].x+dx},${pts[i-1].y} ${pts[i].x-dx},${pts[i].y} ${pts[i].x},${pts[i].y}`;}
+  const area=`${PL},${PT+cH} `+pts.map(p=>`${p.x},${p.y}`).join(' ')+` ${W-PR},${PT+cH}`;
+  const uid='u'+Math.random().toString(36).slice(2,6);
+  const dots=pts.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="3.5" fill="${PHASE_CLR[DAY_PHASE_MAP[p.d]]||color}" stroke="#060610" stroke-width="2"/>`).join('');
+  svg.innerHTML=`<defs><linearGradient id="g${uid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity=".35"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+    ${g}${dl}<polygon points="${area}" fill="url(#g${uid})"/>
+    <path id="p${uid}" d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>
+    ${dots}`;
+  const pe=document.getElementById(`p${uid}`);
+  if(pe){const len=pe.getTotalLength?pe.getTotalLength():1200;pe.style.strokeDasharray=len;pe.style.strokeDashoffset=len;requestAnimationFrame(()=>{pe.style.transition='stroke-dashoffset 1.7s cubic-bezier(.4,0,.2,1)';pe.style.strokeDashoffset='0';});}
+}
+
+function stPickerInit(){
+  const inp=document.getElementById('st-inp'),dd=document.getElementById('st-dd');
+  if(!inp||!dd)return;
+  setTimeout(()=>{
+    const close=e=>{if(!inp.contains(e.target)&&!dd.contains(e.target)){dd.classList.remove('open');document.removeEventListener('click',close);}};
+    document.addEventListener('click',close);
+  },100);
+}
+function stMemberOpen(){const d=document.getElementById('st-dd');if(d)d.classList.add('open');}
+function stMemberFilter(v){
+  const d=document.getElementById('st-dd');if(!d)return;d.classList.add('open');
+  d.querySelectorAll('.mp-opt').forEach(o=>{o.style.display=o.textContent.toLowerCase().includes(v.toLowerCase())?'':'none';});
+}
+function stMemberPick(name){
+  statsMember=name;
+  const inp=document.getElementById('st-inp');if(inp)inp.value=name;
+  const d=document.getElementById('st-dd');if(d)d.classList.remove('open');
+  renderStats('member');
+}
+
+/* ─── ALL 48 ─── */
+function statsRenderAll(el){
+  const totals=computeMemberTotals().sort((a,b)=>b.total-a.total);
+  const maxT=totals[0]?.total||1;
+  const rows=totals.map((m,i)=>{
+    const col=tColor(m.team);
+    const w=(m.total/maxT*100).toFixed(1);
+    return `<div class="hml-row">
+      <div class="hml-name"><span class="hml-rank">#${i+1}</span>${m.member}</div>
+      <div class="hml-bar-track"><div class="hml-bar-fill" data-w="${w}" style="background:linear-gradient(90deg,${col},rgba(${hexToRgb(col)},.45))"></div></div>
+      <div class="hml-hrs">${hms(m.total)}</div>
+    </div>`;
+  }).join('');
+  const leg=TEAMS.map(t=>`<span class="pl-item"><span class="pl-dot" style="background:${t.color}"></span>${t.emoji} ${t.name}</span>`).join('');
+  el.innerHTML=`<div class="chart-box">
+    <div class="chart-box-title">🌐 ALL 48 MEMBERS — TOTAL HOURS</div>
+    <div class="phase-legend" style="margin-bottom:12px">${leg}</div>
+    <div class="hmlist">${rows}</div>
+  </div>`;
+  requestAnimationFrame(()=>setTimeout(()=>{
+    el.querySelectorAll('.hml-bar-fill[data-w]').forEach((b,i)=>setTimeout(()=>{b.style.width=b.dataset.w+'%';},i*10));
+  },60));
+}
+
+/* ─── TEAMS ─── */
+function statsRenderTeams(el){
+  if(!statsTeam)statsTeam='AURORA';
+  const tn=statsTeam;
+  const tObj=TEAMS.find(t=>t.name===tn);
+  const color=tObj?.color||'#9D4EDD';
+  const rgb=hexToRgb(color);
+
+  const teamBtns=TEAMS.map(t=>{
+    const a=t.name===tn;
+    return `<button class="sub-btn${a?' active':''}" onclick="stTeamPick('${t.name}')"
+      style="${a?`background:linear-gradient(135deg,rgba(${hexToRgb(t.color)},.22),rgba(${hexToRgb(t.color)},.07));border-color:rgba(${hexToRgb(t.color)},.4);color:${t.color}`:''}"
+    >${t.emoji} ${t.name}</button>`;
+  }).join('');
+
+  const tSubs=SUBS.filter(s=>s[2]===tn);
+  const dayTots={};
+  for(let d=1;d<=11;d++) dayTots[d]=tSubs.filter(s=>s[0]===d).reduce((sum,s)=>sum+s[3],0);
+  const maxDay=Math.max(...Object.values(dayTots),1);
+
+  const dayBarsHtml=[1,2,3,4,5,6,7,8,9,10,11].map(d=>{
+    const sec=dayTots[d]||0;
+    const pct=(sec/maxDay*100).toFixed(1);
+    const col=PHASE_CLR[DAY_PHASE_MAP[d]]||color;
+    return `<div class="bar-col-wrap">
+      <div class="bar-track"><div class="bar-fill" style="background:linear-gradient(to top,${col},rgba(${hexToRgb(col)},.6))" data-h="${pct}"><div class="bar-tip">D${d}: ${hms(sec)}</div></div></div>
+      <div class="bar-day-label">D${d}</div>
+    </div>`;
+  }).join('');
+
+  const memTots=computeMemberTotals().filter(m=>m.team===tn).sort((a,b)=>b.total-a.total);
+  const maxM=memTots[0]?.total||1;
+  const memBarsHtml=memTots.map(m=>{
+    const w=(m.total/maxM*100).toFixed(1);
+    const isCap=tObj?.captain===m.member;
+    return `<div class="hml-row">
+      <div class="hml-name">${m.member}${isCap?' <span style="color:var(--gold);font-size:9px">★</span>':''}</div>
+      <div class="hml-bar-track"><div class="hml-bar-fill" data-w="${w}" style="background:linear-gradient(90deg,${color},rgba(${rgb},.4))"></div></div>
+      <div class="hml-hrs">${hms(m.total)}</div>
+    </div>`;
+  }).join('');
+
+  const rec=teamRecord(tn);
+  const totHrs=memTots.reduce((s,m)=>s+m.total,0);
+
+  el.innerHTML=`
+    <div class="sub-tabs" style="flex-wrap:wrap;margin-bottom:14px">${teamBtns}</div>
+    <div class="detail-header" style="border-color:rgba(${rgb},.25);margin-bottom:14px">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:${color}">${tObj?.emoji} ${tn}</div>
+      <div class="detail-stats" style="margin-top:8px">
+        <div class="stat-chip"><span class="val" style="color:var(--cyan)">${hms(totHrs)}</span><span class="lbl">Total</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--green)">${rec.w}</span><span class="lbl">Wins</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--pink)">${rec.l}</span><span class="lbl">Losses</span></div>
+        <div class="stat-chip"><span class="val" style="color:var(--gold)">${rec.pts}</span><span class="lbl">Pts</span></div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">📊 COMBINED TEAM HOURS PER DAY</div>
+      <div class="bar-stage">${dayBarsHtml}</div>
+      <div class="phase-legend" style="margin-top:8px">${Object.entries(PHASE_CLR).map(([k,v])=>`<span class="pl-item"><span class="pl-dot" style="background:${v}"></span>${PHASE_NM[k]}</span>`).join('')}</div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">📈 MEMBER JOURNEYS — MULTI-LINE</div>
+      <svg id="lc-team" viewBox="0 0 380 140" style="width:100%;display:block" preserveAspectRatio="none"></svg>
+      <div class="phase-legend" style="margin-top:6px" id="team-line-legend"></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">👤 MEMBER CONTRIBUTION</div>
+      <div class="hmlist">${memBarsHtml}</div>
+    </div>`;
+
+  requestAnimationFrame(()=>setTimeout(()=>{
+    el.querySelectorAll('.bar-fill[data-h]').forEach(b=>{b.style.height=b.dataset.h+'%';});
+    el.querySelectorAll('.hml-bar-fill[data-w]').forEach((b,i)=>setTimeout(()=>{b.style.width=b.dataset.w+'%';},i*30));
+    stDrawMultiLine('lc-team',memTots.map(m=>m.member),tn,'team-line-legend');
+  },80));
+}
+
+function stDrawMultiLine(id,members,teamName,legendId){
+  const svg=document.getElementById(id);if(!svg)return;
+  const W=380,H=140,PL=28,PT=8,PB=22,PR=8,cW=W-PL-PR,cH=H-PT-PB,maxS=20*3600;
+  let g='';
+  [5,10,15,20].forEach(h=>{const y=PT+cH-(h/20)*cH;g+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/><text x="${PL-3}" y="${y+3.5}" text-anchor="end" fill="#444465" font-size="7" font-family="Space Mono,monospace">${h}h</text>`;});
+  const dl=[1,2,3,4,5,6,7,8,9,10,11].map(d=>`<text x="${PL+((d-1)/10)*cW}" y="${H-4}" text-anchor="middle" fill="#444465" font-size="7" font-family="Space Mono,monospace">D${d}</text>`).join('');
+  const uid='t'+Math.random().toString(36).slice(2,6);
+  let lines='';
+  const legendEl=document.getElementById(legendId);
+  const memberColors=['#00FF88','#00D4FF','#9D4EDD','#FFD700','#FF6B35','#FF2D55','#ff9f00','#7fff00'];
+  members.forEach((mName,mi)=>{
+    const mSubs=SUBS.filter(s=>s[1]===mName&&s[2]===teamName);
+    const dm={};for(const s of mSubs)dm[s[0]]=s[3];
+    const pts=[1,2,3,4,5,6,7,8,9,10,11].map(d=>({x:PL+((d-1)/10)*cW,y:PT+cH-((dm[d]||0)/maxS)*cH}));
+    let path=`M${pts[0].x},${pts[0].y}`;
+    for(let i=1;i<pts.length;i++){const dx=(pts[i].x-pts[i-1].x)*.4;path+=` C${pts[i-1].x+dx},${pts[i-1].y} ${pts[i].x-dx},${pts[i].y} ${pts[i].x},${pts[i].y}`;}
+    const lc=memberColors[mi%memberColors.length];
+    const lid=`ml${uid}${mi}`;
+    lines+=`<path id="${lid}" d="${path}" fill="none" stroke="${lc}" stroke-width="2" stroke-linecap="round" opacity="0.85"/>`;
+    if(legendEl)legendEl.innerHTML+= `<span class="pl-item"><span class="pl-dot" style="background:${lc};border-radius:50%"></span>${mName}</span>`;
+    setTimeout(()=>{
+      const pe=document.getElementById(lid);if(!pe)return;
+      const len=pe.getTotalLength?pe.getTotalLength():800;
+      pe.style.strokeDasharray=len;pe.style.strokeDashoffset=len;
+      requestAnimationFrame(()=>{pe.style.transition=`stroke-dashoffset ${1.2+mi*.15}s cubic-bezier(.4,0,.2,1)`;pe.style.strokeDashoffset='0';});
+    },100+mi*60);
+  });
+  svg.innerHTML=g+dl+lines;
+}
+
+function stTeamPick(name){statsTeam=name;renderStats('teams');}
+
+/* ─── OVERVIEW ─── */
+function statsRenderOverview(el){
+  const allT=computeMemberTotals();
+  const totalSec=allT.reduce((s,m)=>s+m.total,0);
+  const totalSnaps=SUBS.filter(s=>s[5]===1).length;
+  const totalSubs=SUBS.filter(s=>s[3]>0).length;
+
+  const dayToppers=[1,2,3,4,5,6,7,8,9,10,11].map(d=>{
+    const ds=SUBS.filter(s=>s[0]===d&&s[3]>0).sort((a,b)=>b[3]-a[3]);
+    return ds.length?{d,member:ds[0][1],team:ds[0][2],sec:ds[0][3]}:null;
+  }).filter(Boolean);
+
+  const winnersHtml=dayToppers.map(w=>{
+    const col=tColor(w.team);
+    return `<div class="dw-row">
+      <span class="dw-day">Day ${w.d}</span>
+      <span class="dw-name" style="color:${col}">${w.member} <span style="font-size:10px;color:var(--muted2)">${tE(w.team)}</span></span>
+      <span class="dw-hrs">${hms(w.sec)}</span>
+      <span class="dw-phase" style="color:${PHASE_CLR[DAY_PHASE_MAP[w.d]]}">${PHASE_NM[DAY_PHASE_MAP[w.d]]}</span>
+    </div>`;
+  }).join('');
+
+  const teamTotals=TEAMS.map(t=>{
+    const mT=allT.filter(m=>m.team===t.name);
+    return {...t,total:mT.reduce((s,m)=>s+m.total,0)};
+  }).sort((a,b)=>b.total-a.total);
+  const maxTT=teamTotals[0]?.total||1;
+
+  const tBarsHtml=teamTotals.map(t=>`<div class="hml-row">
+    <div class="hml-name">${t.emoji} ${t.name}</div>
+    <div class="hml-bar-track"><div class="hml-bar-fill" data-w="${(t.total/maxTT*100).toFixed(1)}" style="background:linear-gradient(90deg,${t.color},rgba(${hexToRgb(t.color)},.4))"></div></div>
+    <div class="hml-hrs" style="font-size:8.5px">${hms(t.total)}</div>
+  </div>`).join('');
+
+  const commDayHtml=[1,2,3,4,5,6,7,8,9,10,11].map(d=>{
+    const sec=SUBS.filter(s=>s[0]===d).reduce((sum,s)=>sum+s[3],0);
+    const pct=(sec/(8*6*20*3600)*100).toFixed(1);
+    const col=PHASE_CLR[DAY_PHASE_MAP[d]]||'#9D4EDD';
+    return `<div class="bar-col-wrap">
+      <div class="bar-track"><div class="bar-fill" style="background:linear-gradient(to top,${col},rgba(${hexToRgb(col)},.6))" data-h="${pct}"><div class="bar-tip">D${d}: ${hms(sec)}</div></div></div>
+      <div class="bar-day-label">D${d}</div>
+    </div>`;
+  }).join('');
+
+  el.innerHTML=`
+    <div class="ov-grid">
+      <div class="ov-card"><span class="ov-big" style="color:var(--cyan)">${Math.floor(totalSec/3600)}<span style="font-size:20px">h</span></span><span class="ov-small">Community Hours</span></div>
+      <div class="ov-card"><span class="ov-big" style="color:var(--green)">${totalSubs}</span><span class="ov-small">Submissions</span></div>
+      <div class="ov-card"><span class="ov-big" style="color:var(--gold)">${totalSnaps}</span><span class="ov-small">Snaps Sent</span></div>
+      <div class="ov-card"><span class="ov-big" style="color:var(--purple)">${allT.length}</span><span class="ov-small">Active Members</span></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">🌐 COMMUNITY STUDY — ALL DAYS COMBINED</div>
+      <div class="bar-stage">${commDayHtml}</div>
+      <div class="phase-legend" style="margin-top:8px">${Object.entries(PHASE_CLR).map(([k,v])=>`<span class="pl-item"><span class="pl-dot" style="background:${v}"></span>${PHASE_NM[k]}</span>`).join('')}</div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">🏆 TEAM TOTAL HOURS COMPARISON</div>
+      <div class="hmlist">${tBarsHtml}</div>
+    </div>
+    <div class="radar-box">
+      <div class="chart-box-title" style="text-align:left;margin-bottom:8px">🕸️ 8-TEAM RADAR — TOTAL HOURS</div>
+      <canvas id="ov-radar" width="300" height="300" style="display:block;margin:0 auto;max-width:100%"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-box-title">⭐ DAY-BY-DAY TOPPERS</div>
+      <div class="dw-list">${winnersHtml}</div>
+    </div>`;
+
+  requestAnimationFrame(()=>setTimeout(()=>{
+    el.querySelectorAll('.bar-fill[data-h]').forEach(b=>{b.style.height=b.dataset.h+'%';});
+    el.querySelectorAll('.hml-bar-fill[data-w]').forEach((b,i)=>setTimeout(()=>{b.style.width=b.dataset.w+'%';},i*30));
+    stDrawRadar('ov-radar',teamTotals);
+  },80));
+}
+
+function stDrawRadar(canvasId,teamData){
+  const canvas=document.getElementById(canvasId);if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=300,H=300,cx=150,cy=150,R=105,N=teamData.length;
+  const maxT=Math.max(...teamData.map(t=>t.total));
+  ctx.clearRect(0,0,W,H);
+  // Rings
+  for(let r=1;r<=4;r++){ctx.beginPath();for(let i=0;i<N;i++){const a=(i/N)*Math.PI*2-Math.PI/2;const x=cx+(R*r/4)*Math.cos(a),y=cy+(R*r/4)*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.closePath();ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;ctx.stroke();}
+  // Spokes
+  for(let i=0;i<N;i++){const a=(i/N)*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.stroke();}
+  const pcts=teamData.map(t=>t.total/maxT);
+  // Fill polygon
+  ctx.beginPath();teamData.forEach((t,i)=>{const a=(i/N)*Math.PI*2-Math.PI/2,r=R*pcts[i];i===0?ctx.moveTo(cx+r*Math.cos(a),cy+r*Math.sin(a)):ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));});
+  ctx.closePath();ctx.fillStyle='rgba(0,255,136,0.07)';ctx.fill();ctx.strokeStyle='rgba(0,255,136,0.5)';ctx.lineWidth=2;ctx.stroke();
+  // Dots + labels
+  teamData.forEach((t,i)=>{
+    const a=(i/N)*Math.PI*2-Math.PI/2,r=R*pcts[i];
+    const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);
+    ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=t.color;ctx.fill();
+    const lx=cx+(R+20)*Math.cos(a),ly=cy+(R+20)*Math.sin(a);
+    ctx.fillStyle=t.color;ctx.font='bold 11px "Space Mono",monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(t.emoji,lx,ly);
+  });
+}
+
+// ════════════════════════════════════════════
+// TAB SWITCHING
+// ════════════════════════════════════════════
+let resultsPhase='league';
+let lbMode='individual';
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    const tab=btn.dataset.tab;
+    document.getElementById('tab-'+tab).classList.add('active');
+    if(tab==='results')renderResults(resultsPhase);
+    if(tab==='leaderboard')renderLeaderboard(lbMode);
+    if(tab==='awards')renderAwards();
+    if(tab==='rules')renderRules();
+    if(tab==='stats')renderStats(statsSubTab);
+  });
+});
+
+// Results sub-tabs
+document.querySelectorAll('[data-sp]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-sp]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    resultsPhase=btn.dataset.sp;
+    renderResults(resultsPhase);
+  });
+});
+
+// Leaderboard sub-tabs
+document.querySelectorAll('[data-lp]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-lp]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    lbMode=btn.dataset.lp;
+    renderLeaderboard(lbMode);
+  });
+});
+
+// Stats sub-tabs
+document.querySelectorAll('[data-stab]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-stab]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderStats(btn.dataset.stab);
+  });
+});
+
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+renderTeams();
+</script>
+</body>
+</html>
